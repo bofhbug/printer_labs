@@ -1,0 +1,1 @@
+start DOSPrinter.exe /TRAY "Sample.prn"
