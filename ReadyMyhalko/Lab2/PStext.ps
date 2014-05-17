@@ -1,0 +1,26 @@
+50 472.4 translate 
+1 1 scale
+200 -50 moveto
+/rendtext {findfont exch scalefont setfont show} def
+
+/drawtext1 {
+ 20 0 moveto
+ (Кафедра САПР) 12 /ArialCyrMT rendtext  
+ -50 -30 rmoveto
+ (Студент гр. ДА-21 Михалько Вiталiй Геннадiйович) 10 /TimesNRCyrMT rendtext
+} def
+  
+ drawtext1
+ gsave   
+ 45 rotate
+ drawtext1
+ grestore
+ gsave  
+ 90 rotate 
+ drawtext1
+ grestore 
+ 180 rotate 
+ -250 80 translate 
+ drawtext1 
+ 
+showpage 

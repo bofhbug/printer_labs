@@ -1,0 +1,48 @@
+/k 2.83 def
+/top_y 842 2.83 div def
+/top_x 597 2.83 div def
+
+k k scale
+
+/top_margin 5 def
+/bottom_margin 5 def
+/left_margin 20 def
+/right_margin 5 def
+
+/rendtext {findfont exch scalefont setfont show} def
+
+newpath
+
+0.5 setlinewidth
+left_margin bottom_margin moveto
+left_margin top_y top_margin sub lineto
+top_x right_margin sub top_y top_margin sub lineto
+top_x right_margin sub bottom_margin lineto
+left_margin bottom_margin lineto
+
+top_x right_margin sub bottom_margin 22 add moveto
+-145 0 rlineto
+0 -22 rlineto
+0 8 rmoveto
+145 0 rlineto
+-20 0 rmoveto
+0 -8 rlineto
+-20 0 rmoveto
+0 8 rlineto
+-35 -8 rmoveto
+0 22 rlineto
+-15 0 rmoveto
+0 -14 rlineto
+-30 0 rmoveto
+0 14 rlineto
+-25 -7 rmoveto
+70 0 rlineto
+
+stroke
+
+ top_x right_margin sub 55 sub bottom_margin 17 add moveto
+ (Михалько Вiталiй) 5 /TimesNRCyrMT rendtext
+ top_x right_margin sub 50 sub bottom_margin 11 add moveto
+ (Геннадiйович) 5 /TimesNRCyrMT rendtext
+
+showpage
