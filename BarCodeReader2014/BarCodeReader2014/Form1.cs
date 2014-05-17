@@ -39,17 +39,14 @@ namespace BarCodeReader2014
 
         private void DecodeBtn_Click(object sender, EventArgs e)
         {
+
             for (int xi = 0; xi < Img.Width; xi++)
             {
-                for (int yi = 0; yi < Img.Height; yi++)
-                {
-                    if (IsBlack(Img.GetPixel(xi, yi)))
-                        Img.SetPixel(xi, yi, Color.Black);
-                    else
-                        Img.SetPixel(xi, yi, Color.White);
-                } 
+               
             }
+
             PicBox.Image = Img;
         }
+
     }
 }
