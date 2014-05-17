@@ -1,0 +1,154 @@
+<html><head><title>/unixhelp/printer.txt</title></head><body><pre><pre>
+    enlarged (double-width)  5 cpi     5 мм      40     66
+    condensed enlarged    8.57 cpi    2.9 мм     68    113
+    pica, nlq               10 cpi    2.5 мм     80    132
+    elite                   12 cpi    2.1 мм     96    158
+    condensed            17.14 cpi    1.4 мм    137    226
+    elite condensed         20 cpi    1.2 мм    160    264
+
+Вертикальный шаг задается "тиками" в (1/216)" = 0.118 мм. Стан-
+дартно используются межстрочные расстояния ( в Lines Per Inch )
+      6 LPI = (1/6)" = 36 тик = 4.25 мм,
+      8 LPI = (1/8)" = 27 тик =  3.2 мм.
+Минимально читаемо, приблизительно :
+      condensed  9 LPI = 24 тик =  3 мм,
+      subscript 18 LPI = 12 тик = 1.4 мм.
+
+        Управляющие последовательности принтеров
+                  в кодовом порядке
+
+ASCII   Dec  Hex     P-IBM Proprinter XL
+                     …ѓ E-Epson FX 850/1050
+                     ѓЉ …ѓ L-laser ???
+                     …Ѓ …Ѓ …Ѓ N-Nec Pinwriter P2200 (24 pins)
+BEL      7   07      P E L …Ѓ Звоночек
+BS       8   08      P E L N Забой (backspace)
+HT       9   09      P E L N Горизонтальная табуляция
+LF      10   0A      P E L N Перевод строки
+VT      11   0B      P E L N Вертикальная табуляция
+FF      12   0C      P E L N Конец страницы
+CR      13   0D      P E L N Возврат каретки
+SO      14   0E      P E L N Включить режим Double-width  (на одну строку)
+SI      15   0F      P E L N Включить режим Condenced
+DC1     17   11      P E L   Включить принтер
+DC2     18   12      P       Включить режим Pitch 10
+         - " -         E L N Выключить режим Condenced
+DC3     19   13      P E L   Выключить принтер
+DC4     20   14      P E L N Выключить режим Double-width  (одностроковый)
+CAN     24   18      P E L N Отменить строку (cancel line)
+DEL                    E L N Стереть символ
+Esc SO                 E L N то же что SO
+Esc SI                 E L N то же что SI
+Esc EM (n)             E L N Включить/выключить режим автоподачи
+Esc SP (n)             E L N Установить межсимвольное расстояние
+Esc ! (n)              E L N Установить стиль печати
+Esc #                  E L N Выключить контроль MSB (8-го бита данных)
+Esc $ (n1) (n2)        E L N Переместить в абс.позицию по горизонтали
+Esc % (n)              E L N Включить загружаемый шрифт
+Esc & (0) (n1) (n2)    E L N Загрузить шрифт
+Esc ( -                  L   Включить/выключить Score
+Esc * (m) (n1) (m2)    E L N Выбор графического режима
+Esc +                    L   Включить n/360-дюймовый интервал
+Esc - (n)            P E L N Включить или выключить подчеркивание
+Esc / (n)              E L N Select (включить) Vertical Tab Channel
+Esc 0                P E L N Включить 1/8-дюймовый интервал
+Esc 1                P E     Включить 7/72-дюймовый интервал
+Esc 2                  E L N Включить 1/6-дюймовый интервал
+Esc 2                P       Включить интервал Esc A (или 1/6")
+Esc 3 (n)            P E     Включить n/216-дюймовый интервал
+Esc 3 (n)                L N Включить n/180-дюймовый интервал
+Esc 4                  E L N Включить курсив
+Esc 4                P       Установить верхнюю границу формата
+Esc 5                  E L N Выключить курсив
+Esc 5 (n)            P       Включить/выключить автоматический
+                             перевод строки (auto line feed)
+Esc 6                P E L N Подключить коды 128-159 к печати (printable коды)
+Esc 7                P E L N Отключить коды 128-159 от печати  (upper control)
+Esc 8                  E     Отключить контроль конца бумаги
+Esc 9                  E     Подключить контроль конца бумаги
+Esc : (0) (0) (0)      E L N Копировать текущий ROM в RAM
+Esc :                P       Включить плотность 12 Pitch
+Esc <                  E L N Включить однонаправленный режим (на одну строку)
+Esc =                  E L N Установить MSB (8-й бит данных) в 0
+Esc =                P       Загрузить шрифт
+Esc >                  E L N Установить MSB в 1
+Esc ? (s) (m)          E L N Переназначить графический режим
+Esc @                  E L N Инициализировать принтер
+Esc A (n)            P E     Установить n/72-дюймовый интервал
+Esc A (n)                L N Установить n/60-дюймовый интервал
+Esc B (n1) (n2)      P E L N Установить вертикальный табулятор
+    (n...) (0)
+Esc C (n)            P E L N Установить размер страницы в строках
+Esc C (0) (n)        P E L N Установить размер страницы в дюймах
+Esc D (n1) (n2)      P E L N Установить горизонтальный табулятор
+    (n...) (0)
+Esc E                P E L N Включить режим Emphasized (Enhanced)
+Esc F                P E L N Выключить режим Emphasized (Enhanced)
+Esc G                P E L N Включить режим Double-strike (NLQ)
+Esc H                P E L N Выключить режим Double-strike (NLQ)
+Esc I (n)              E     Расширить область печатных кодов
+Esc I (n)            P       Выбрать NLQ/DRAFT и ROM/RAM шрифт
+Esc J (n)            P E     Исполнить n/216-дюймовый интервал
+Esc J (n)                L N Исполнить n/180-дюймовый интервал
+Esc K (n1) (n2)      P E L N Включить режим плотности 60 dpi графики
+Esc L (n1) (n2)      P E L N Включить режим плотности 120 dpi графики
+Esc M                  E L N Включить плотность 12 Pitch
+Esc N (n)            P E L N Включить пропуск перфорации
+Esc O                P E L N Отключить пропуск перфорации
+Esc P                  E L N Включить плотность 10 Pitch
+Esc P                P     Включить/выключить пропорциональный режим
+Esc Q (n)              E L N Установить правую границу
+Esc Q                P       Выключить принтер
+Esc R (n)              E L N Включить международный кодовый набор
+Esc R                P       Сбросить все табуляторы (to power on)
+Esc S (0)            P E L N Включить режим надстрочника
+Esc S (1)            P E L N Включить режим подстрочника
+Esc T                P E L N Выключить режим над/под-строчника
+Esc U (n)            P E L N Включить/выключить однонаправленный режим
+Esc V (n)                  N Повторяемые данные
+Esc V (n)                  N Конец повторяемых данных
+Esc W (n)            P E L N Включить/выключить режим double-width
+Esc X                P       Установить левую и правую границы
+Esc Y (n1) (n2)      P E L N Включить режим графики плотности 120 dpi
+                             и высокой скорости
+Esc Z (n1) (n2)      P E L N Включить режим плотности 240 dpi графики
+Esc [ @              P       Установить режим двойной высоты, двойной ширины
+Esc \ (n1) (n2)        E L N Установить относ. гориз. позицию печати
+Esc \ (n1) (n2)      P       Печатать все символы (0-255)
+Esc ^                  E     Включить режим 9-точечной графики
+Esc ^                P       Печатать один символ (0-255)
+Esc _                P       Включить/выключить режим зачеркивания
+Esc a (n)              E L N Включить выравнивание (justification)
+Esc b (c) (n1) (n2)    E L N Set vertical tabs in channels
+    (n...) (0)
+Esc e 0 (n)                N Repeated horizontal tabs
+Esc e 1 (n)                N Repeated vertical tabs
+Esc f 0 (n)                N Print head moved
+Esc f 1 (n)                N Paper advanced
+Esc g                    L N Включить 15 Pitch
+Esc j (n)                  N Исполнить n/180-дюймовый возврат бумаги
+Esc k (n)              E L N Включить Typestyle Family (select a font)
+Esc l (n)              E L N Установить левую границу
+Esc p (n)              E L N Включить/выключить пропорциональный режим
+Esc s (n)              E   N Включить/выключить режим половинной скорости
+Esc t (n)              E L N Select character table
+Esc w                  E L   Включить/выключить режим двойной высоты
+Esc x (n)              E L N Включить режим NLQ или DRAFT
+FS 3 (n)                   N Включить n/360-дюймовый интервал
+FS @                       N Инициализация принтера
+FS C (n)                   N Font cartridge
+FS E (n)                   N Horizontal enlargement
+FS F                       N Forward LF
+FS I (n)                   N Italic or IBM set
+FS R                       N Reverse LF
+FS S (n)                   N 12 Picth print mode
+FS V (n)                   N Vertical enlargement
+FS Z (n1) (n2)             N High-dencity dot mode
+
+enable, select  - включить         set     - установить
+disable, cancel - выключить        perform - сделать
+
+<pre><hr noshade><small>Обращений с начала месяца: <b>34</b>, Last-modified: Sat, 30 Aug 1997 09:52:48 GMT
+</small>
+
+</body></html>

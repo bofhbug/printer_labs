@@ -1,0 +1,84 @@
+BODY {
+	BACKGROUND-COLOR: gray
+}
+H1 {
+	BORDER-TOP: blue solid; COLOR: aqua; FONT-FAMILY: fantasy; TEXT-ALIGN: center
+}
+H2 {
+	PADDING-LEFT: 5px; FONT-SIZE: 20px; BORDER-LEFT: blue solid; COLOR: aqua; FONT-FAMILY: sans-serif
+}
+H3 {
+	PADDING-LEFT: 10px; FONT-SIZE: 17px; BORDER-LEFT: blue solid; COLOR: aqua; FONT-FAMILY: sans-serif
+}
+H4 {
+	PADDING-LEFT: 10px; FONT-SIZE: 15px; BORDER-LEFT: blue solid; COLOR: aqua; FONT-FAMILY: sans-serif
+}
+H5 {
+	PADDING-LEFT: 10px; FONT-SIZE: 15px; BORDER-LEFT: blue solid; COLOR: aqua; FONT-FAMILY: sans-serif
+}
+P {
+	FONT-SIZE: 13px; MARGIN-LEFT: 20px; COLOR: #31cece; MARGIN-RIGHT: 10px; FONT-FAMILY: "MS Sans Serif", Geneva, sans-serif; TEXT-ALIGN: justify
+}
+P.level0 {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 3px; COLOR: white; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+P.level1 {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 14px; COLOR: white; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+P.level2 {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; PADDING-BOTTOM: 3px; MARGIN-LEFT: 24px; COLOR: white; PADDING-TOP: 2px; TEXT-ALIGN: left
+}
+B {
+	COLOR: #009cce
+}
+B.operator {
+	FONT-WEIGHT: bolder; FONT-SIZE: 140%; COLOR: #009cce
+}
+LI {
+	MARGIN-TOP: 2px; FONT-SIZE: 13px; MARGIN-LEFT: 20px; COLOR: #31cece; MARGIN-RIGHT: 10px; FONT-FAMILY: "MS Sans Serif", Geneva, sans-serif; TEXT-ALIGN: justify
+}
+P.date {
+	FONT-SIZE: 7px; MARGIN-LEFT: 20px; COLOR: #3131ff; MARGIN-RIGHT: 10px; BORDER-BOTTOM: thin solid; FONT-FAMILY: "MS Sans Serif", Geneva, sans-serif; TEXT-ALIGN: right
+}
+PRE.example {
+	BORDER-RIGHT: gray thick solid; PADDING-RIGHT: 5px; BORDER-TOP: gray thin solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 16px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 40px; BORDER-LEFT: gray thin solid; COLOR: #b4b4b4; MARGIN-RIGHT: 20px; PADDING-TOP: 0px; BORDER-BOTTOM: gray thick solid; FONT-FAMILY: "Courier New", Courier, monospace
+}
+A {
+	FONT-SIZE: 13px; COLOR: #63ceff; FONT-FAMILY: "MS Sans Serif", Geneva, sans-serif; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #319cff; TEXT-DECORATION: underline
+}
+TD {
+	COLOR: #31cece
+}
+TD.date {
+	COLOR: blue
+}
+TD.soder {
+	FONT-SIZE: 13px; MARGIN-LEFT: 30px; COLOR: #31cece; FONT-FAMILY: "MS Sans Serif", Geneva, sans-serif
+}
+TD.command {
+	FONT-WEIGHT: bold; COLOR: #009cce; TEXT-ALIGN: center
+}
+TR.shapka {
+	COLOR: #31cece; BACKGROUND-COLOR: #676767; TEXT-ALIGN: center
+}
+TD.st0 {
+	FONT-WEIGHT: bold; FONT-SIZE: 8px; COLOR: black; BACKGROUND-COLOR: #676767; TEXT-ALIGN: center
+}
+TR.starg {
+	COLOR: #009cce; BACKGROUND-COLOR: black; TEXT-ALIGN: center
+}
+TD.starg1 {
+	FONT-SIZE: 11px; COLOR: #009cce; BACKGROUND-COLOR: black; TEXT-ALIGN: center
+}
+TD.stoper {
+	FONT-WEIGHT: bold; COLOR: yellow; BACKGROUND-COLOR: black; TEXT-ALIGN: left
+}
+TD.stdd {
+	FONT-SIZE: 13px; COLOR: #009cce; BACKGROUND-COLOR: black; TEXT-ALIGN: left
+}
+TD.stddo {
+	FONT-SIZE: 13px; MARGIN-LEFT: 10px; COLOR: #31cece; BACKGROUND-COLOR: black; TEXT-ALIGN: left
+}

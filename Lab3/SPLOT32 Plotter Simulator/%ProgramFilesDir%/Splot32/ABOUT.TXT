@@ -1,0 +1,86 @@
+
+
+          S P L O T  -  The Plotter Simulator V3.2 for Win32
+          --------------------------------------------------
+               Copyright (C) 1991-2000 by Alexandr NOVY
+                         All rights reserved.
+
+                             October 2000
+
+
+  The  SPLOT  program  is  a  highly  effective  tool  intended   for
+simulating the pen plotter  on the display of  an IBM PC.   The SPLOT
+program is the very thing you need to make your work with the plotter
+more effective. The SPLOT program will give you a guarantee you  will
+always draw on your plotter what you really want. That is why it will
+save your nerves, your time, your plotter, pens and paper, that means
+your money.
+
+The SPLOT program can offer:
+ - comprehensive support of HP-GL/2 language.
+ - active support of about 50 HP-GL instructions (according to the
+   type of simulated plotter).
+ - active support of 20 DXY-GL instructions (for ROLAND plotters).
+ - possibility of exporting  a  picture to  the printer and   in this
+   way to obtain an output of  a high quality. In this way  the SPLOT
+   program will make a fast and excellent plotter of your printer.
+ - exporting a picture to the HP-GL, HP-GL/2, DXY-GL, DXF, DXB and
+   metafile formats.
+ - possibility of making picture cuts (the TRIM function).  In this
+   way you can scan, draw on the plotter or print only the  selected
+   part of the picture.
+ - the ZOOM and PAN functions.
+ - to teach your plotter the advanced instructions you would get only
+   if you buy a more expensive plotter or additional hardware  (e.g.,
+   the SPLOT program can simulate connecting an additional HP  17440A
+   graphics enhancement cartridge to the HP 7440A ColorPro plotter).
+ - possibility  of  processing  a  HP-GL text including  multilingual
+   characters - in this way the SPLOT program will teach your plotter
+   German  (Spanish,  French,  etc.)   easily  and  quickly   without
+   complicated switching between character sets!
+
+The SPLOT program can be used by:
+ - anybody who wants  to work with his  plotter in the WYSIWYG  style
+   (What You See Is What You Get).
+ - anybody who wants to develop his own plotter program applications.
+   You can reach it with the SPLOT program easily even if you do  not
+   own the plotter at all!
+ - anybody who wants to use his printer as a plotter occasionally  or
+   constantly.  In  many  cases  using  a  printer  may be faster and
+   moreover, this may be an alternative of a high quality.
+ - anybody who wants to program  a printer in graphics mode and  at a
+   high level and who does  not want to develop complicated  software
+   which would enable it. In these cases using the HP-GL language  in
+   connection with the  SPLOT program seems  to be very  advantageous
+   for  creating  own  graphics  outputs.  The  HP-GL language can be
+   learned  very  easily  and  in  addition,  it  offers   unexpected
+   possibilities.
+
+ The SPLOT program is available  for various plotter versions.   This
+means that there  are provided DLL  modules designated for  a certain
+plotter  type.  This  principle  gives  the  maximum  reliability  of
+simulation of the given plotter type.  At present the DLL modules for
+the following plotter types are at your disposal:
+
+    Plotter type                          | Plotter syntax
+  ------------------------------------------------------------
+    HP-GL/2 pen plotter                   | HP-GL/2
+    HP-GL/2 raster device                 | HP-GL/2
+    HP 7470A                              | HP-GL
+    HP 7475A                              | HP-GL
+    HP 7440A ColorPro                     | HP-GL
+    HP 7550A                              | HP-GL
+    HP 7570A/7575A/7576A DraftPro DXL/EXL | HP-GL
+    HP 7595A/7596A DraftMaster I/II       | HP-GL
+    ROLAND DXY 1100/1200/1300             | DXY-GL / RD-GL I
+    ROLAND GRX 300/400                    | RD-GL II
+
+ An UNREGISTERED COPY of the program is available only in the version
+for the HP-GL/2,  HP 7475A,  HP DraftMaster and  ROLAND DXY plotters.
+The versions  for other  plotter types  can be  received only  on the
+basis  of  a  regular  registration.  See  the  file  LICENCE.TXT for
+registration information.
+
+ An UNREGISTERED COPY  is provided  with  on-line manual  in the help
+file. The registered users will receive also refrence guides for  all
+ordered plotter types.

@@ -1,0 +1,55 @@
+Notice: The news listed here are only the major improvements.
+
+     WHAT'S NEW IN SPLOT FOR WINDOWS V3.20
+
+   * Added export to the metafile (Windows or Enhanced) format.
+     The metafile can be also copied to the Windows clipboard.
+   * Added so called tiled print feature which enables to print
+     scaled images on more pages (in case they cannot fit to one
+     page).
+   * Printer setup is now saved and re-used (except Win32s).
+     You should change printer selection in the 'Printer Select'
+     dialog to enable re-using of the saved printer setup also when
+     printer selection changes (see on-line help for details).
+
+
+     WHAT'S NEW IN SPLOT FOR WINDOWS V3.12
+
+   * Added 'watch file' capability to automatically reflect changes
+     in the opened file.
+   * Added DDE support for file associations. With DDE support
+     enabled each plot file opened from Windows Explorer will be
+     sent to the same instance of SPLOT. See the Setup utility.
+   * A last used file and/or directory can be re-used.
+     See the Preferences dialog.
+   * SPLOT now saves and restores size and position
+     of all its windows.
+
+
+     WHAT'S NEW IN SPLOT FOR WINDOWS V3.11
+
+   * A last used plotter type is now saved and re-used.
+   * Enhanced export to the DXF format can now use polylines.
+   * Added export to the DXB (drawing interchange binary) format
+     (please don't confuse with binary DXF). Use this format if you
+     have problems to import a SPLOT DXF output to AutoCAD (applies
+     to AutoCAD rel. 13 and above).
+     To load a DXB file in AutoCAD enter the DXBIN command.
+     
+
+     WHAT'S NEW IN SPLOT FOR WINDOWS V3.10
+
+   * Added tool bar and status bar. The minimum system requirement
+     is now Win95 or WinNT v3.51 or Win32s v1.3.
+   * Added Page Setup dialog which allows to set also print margins.
+   * The screen rotation is now reflected in printing.
+   * Added possibility of additional plotter rotation via forcing
+     of the RO instruction over the plotted file.
+   * The screen drawing can be arbitraty aligned in window.
+   * For improvements in HP-GL/2 support see the HPGL2.TXT file.
+
+
+     WHAT'S NEW IN SPLOT FOR WINDOWS V3.00
+
+   * This is the first release of 32-bit version of the
+     SPLOT program running under Win32s, WinNT or Win95.

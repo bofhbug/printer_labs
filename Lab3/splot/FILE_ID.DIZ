@@ -1,0 +1,19 @@
+SPLOT V3.2 for Win32, the HP-GL/2,
+HP-GL and DXY-GL plotter simulator.
+It supports more than 50 HP-GL/2 or HP-GL
+instructions and 20 DXY-GL instructions.
+SPLOT has many features as comfortable user
+interface with on-line help, exporting
+a picture to the HP-GL, DXY-GL, DXF, DXB and
+metafile formats, printing, trim, zoom, pan
+and rotate functions, variable line widths 
+and pen colors etc. The 'Copy to Clipboard' 
+function allows you to convert HPGL files
+to raster formats (GIF,PCX,BMP,TIF,JPG etc.)
+using a paste function in lots of available
+graphics programs. SPLOT is intended namely
+for CAD/CAM users, software developers and
+for anybody who want to work with plotter
+more effective.
+This 32-bit version runs under Win32s,
+WinNT or Win95/98.

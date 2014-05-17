@@ -1,0 +1,248 @@
+
+           S P L O T  -  The Pen Plotter Simulator V3.2 for Win32
+           ------------------------------------------------------
+                   Copyright (C) 1991-99 by Alexandr NOVY
+                             All rights reserved.
+
+                                December 1999
+
+
+                                  HPGL2.TXT
+
+        This file contains  some reference information  about HP-GL/2
+        support provided by the SPLOT program.
+
+        The 32-bit version of the SPLOT  program supports HP-GL/2 pen
+        plotters and HP-GL/2 raster devices.
+
+        The implemented support of the HP-GL/2 language is based on
+        "The HP-GL/2 and HP RTL Reference Guide - A Handbook for 
+        Program Developers", Hewlett Packard 2nd edition,
+        September 1996.
+
+
+        1) Important parameters:
+        ========================
+        Number of pens: user defined up to 256.
+        For pen plotters the number of pens is physical number of
+        pens in carousel.
+        For pen plotters the following modulo function is used for
+        pen numbers greater than number of pens (np):
+                        pn = ( (pn-1) mod np ) + 1
+        For raster devices the number of pens is maximum number of
+        logical pens, the actual number of logical pens is defined
+        by NP instruction and its default value is 8 for color
+        raster devices and 2 for monochrome raster devices. However
+        only color raster devices are supported now.
+        For raster devices the following modulo function is used for
+        pen numbers greater or equal to current number of pens (np):
+                        pn = ( (pn-1) mod (np-1) ) + 1
+        Note that for raster devices the pens are numbered from zero
+        and pen number 0 is valid pen. However it is usually white
+        colored and all white pens are not used when the transparency
+        mode is on (default state) (see TR instruction).
+        For pen plotters the pen number 0 causes storing of a current
+        pen to carousel and no pen is used.
+
+        Paper size: user definable (see the PAPERS.TXT file)
+                    or defined by the PS instruction
+
+        Plotter unit: 0.025 mm
+
+        Maximal number of digits in decimal fraction to be read: 10
+
+        Supported character fonts (typefaces):
+         The present version of the HP-GL/2 interpreter supports only
+        the  stick  fonts  (characters  are  drawn  as  a  series  of
+        vectors). The scalable outline fonts or bitmap fonts are  not
+        supported. Note that not all HP-GL/2 devices support  outline
+        or bitmap fonts, but all HP-GL/2 devices support stick fonts.
+         From stick fonts only fixed-vector font (typeface number 48)
+        and drafting  font (typeface  number 49)  are supported.  The
+        variable spacing fonts are not supported yet. Also the  fixed
+        arc font is not supported yet. Note that the drafting font is
+        for use  with the  HP Drafting  character set  (character set
+        number 563).
+
+        Supported character sets:
+         The present version of the HP-GL/2 interpreter supports only
+        these character sets:
+        --------------------------------------------------------------
+         Character |                                     |
+         Set Value |            Description              | ISO Number
+        --------------------------------------------------------------
+            0      | Roman8 (default)                    |    --
+          277      | Roman8 (default)                    |    --
+           21      | ANSI US ASCII                       |     6
+          531      | HP-GL Download                      |    --
+          563      | HP-GL Drafting                      |    --
+          595      | HP-GL Special Symbols               |    --
+           11      | JIS ASCII                           |    14
+           85      | ISO International Reference Version |     2
+          115      | ISO Swedish                         |    10
+           19      | ISO Swedish for Names               |    11
+            4      | ISO Norway v1                       |    60
+           36      | ISO Norway v2                       |    61
+           39      | ISO German                          |    21
+            6      | ISO French v1                       |    25
+           37      | ISO United Kingdom                  |     4
+            9      | ISO Italian                         |    15
+           83      | ISO Spanish                         |    17
+          147      | ISO Portuguese                      |    16
+            7      | HP German                           |    --
+          275      | HP Latin Spanish                    |    --
+            5      | Roman Extensions                    |    --
+           43      | Katakana                            |    --
+
+
+        2) Alphabetical list of HP-GL/2 instructions that are fully
+           supported by the SPLOT program:
+        ===========================================================
+         AA  - The Arc Absolute Instruction
+         AR  - The Arc Relative Instruction
+         AT  - The Absolute Arc Three Point Instruction
+         BR  - The Bezier Relative Instruction
+         BZ  - The Bezier Absolute Instruction
+         CI  - The Circle Instruction
+         CO  - The Comment Instruction
+         CP  - The Character Plot Instruction
+         CR  - The Set Color Range for Relative Color Data
+               (for raster devices only)
+         CT  - The Chord Tolerance Mode Instruction
+         DF  - The Default Values Instruction
+         DI  - The Absolute Direction Instruction
+         DL  - The Download Character Instruction
+         DR  - The Relative Direction Instruction
+         DT  - The Define Label Terminator Instruction
+         DV  - The Define Variable Text Path Instruction
+         EA  - The Edge Rectangle Absolute Instruction
+         EP  - The Edge Polygon Instruction
+         ER  - The Edge Rectangle Relative Instruction
+         ES  - The Extra Space Instruction
+         EW  - The Edge Wedge Instruction
+         FP  - The Fill Polygon Instruction
+               However the optional non-zero winding fill method
+               is supported only for solid fills.
+         IN  - The Initialize Instruction
+         IP  - The Input P1 and P2 Instruction
+         IR  - The Input Relative P1 and P2 Instruction
+         IW  - The Input Window Instruction
+         LB  - The Label Instruction
+         LO  - The Label Origin Instruction
+         LT  - The Line Type Instruction
+         MG  - The Message Instruction
+               Writes a message to the SPLOT Event Log window.
+         NP  - The Number of Pens Instruction 
+               (for raster devices only)
+         PA  - The Plot Absolute Instruction
+         PC  - The Pen Color Assignment Instruction
+               (for raster devices only)
+               The support of PC instruction can be switched ON or OFF in SPLOT.
+         PD  - The Pen Down Instruction
+         PE  - The Polyline Encoded Instruction
+         PM  - The Polygon Mode Instruction
+         PR  - The Plot Relative Instruction
+         PS  - The Plot Size Instruction
+               The support of PS instruction can be switched ON or OFF in SPLOT.
+         PU  - The Pen Up Instruction
+         PW  - The Pen Width Instruction
+         RA  - The Fill Rectangle Absolute Instruction
+         RO  - The Rotate Coordinate System Instruction
+         RR  - The Fill Rectangle Relative Instruction
+         RT  - The Relative Arc Three Point Instruction
+         SA  - The Select Alternate Font Instruction
+         SC  - The Scale Instruction
+         SI  - The Absolute Character Size Instruction
+         SL  - The Character Slant Instruction
+         SM  - The Symbol Mode Instruction
+         SP  - The Select Pen Instruction
+         SR  - The Relative Character Size Instruction
+         SS  - The Select Standard Font Instruction
+         TR  - The Transparency Mode Instruction
+               (for raster devices only)
+         UL  - The User-Defined Line Type Instruction
+         VS  - The Velocity Select Instruction (for information only)
+         WG  - The Fill Wedge Instruction
+         WU  - The Pen Width Unit Selection Instruction
+
+
+        3) Alphabetical list of HP-GL/2 instructions that are
+           partially supported by the SPLOT program (they may
+           be fully supported in next SPLOT versions):
+        ======================================================
+         AD  - The Alternate Font Definition Instruction
+               Only the character set attribute is supported.
+               All other attributes are ignored.
+               The character size (pitch and height attributes)
+               should be specified by the SI or SR instruction.
+               The stroke weight attribute is always considered
+               to be 9999 (the characters are drawn in the current
+               pen width).
+               The typeface is always considered to be 48 (stick
+               font) except for character set number 563 (HP-GL
+               Drafting).
+         BP  - The Begin Plot Instruction
+               Only the initialization (IN) part is supported.
+         FT  - The Fill Type Instruction
+               There are supported fill types 1,2,3,4 and 10.
+               The shading for fill type 10 is simulated by a pen color
+               lightening so to obtain well looking results it is strongly
+               recommended to use an high-color or true-color video mode.
+               The support of fill type 10 can be switched ON or OFF in SPLOT.
+               When switched OFF the fill type 10 is treated as fill type 1.
+               The fill type 11 (user-defined raster fill) is treated as
+               fill type 1 (i.e. by the same way as if none RF instruction
+               was previously used).
+         MC  - The Merge Control Instruction
+               The opcode parameter is converted to an appropriate binary
+               raster operation because the Windows GDI does not support
+               ternary raster operations for pen and raster fill output.
+               The conversion to a binary raster operation is done by
+               considering the Texture operand always as zero.
+               Note that there can be up to three operands in ternary reaster
+               operations - Source (pens, fills), Destination (already drawn
+               output) and Texture (any user selected pattern).
+               The support of MC instruction can be switched ON or OFF in SPLOT.
+               Also note that MC support can be separately controlled for printing.
+         SD  - The Standard Font Definition Instruction
+               See the AD instruction.
+         SV  - The Screened Vectors Instruction
+               Only screen type 1 (shaded fill) is supported. The shading
+               is simulated by a pen color lightening so to obtain well
+               looking results it is strongly recommended to use an high-color
+               or true-color video mode.
+               The screen type 2 (user-defined raster fill) is still ignored.
+               The support of SV instruction can be switched ON or OFF in SPLOT.
+         TD  - The Transparent Data Instruction
+               When transparent data mode is enabled, SPLOT 
+               prints all control characters as spaces.
+
+
+        4) Alphabetical list of HP-GL/2 instructions that are not
+           supported by the SPLOT program:
+        =========================================================
+         - All Dual-Context Extension instruction.
+         - All output instructions:
+            OD, OE, OH, OI, OP and OS.
+         - And these:
+           AC  - The Anchor Corner Instruction *
+           CF  - The Character Fill Mode Instruction
+           DC  - The Digitize Clear Instruction
+           DP  - The Digitize Point Instruction
+           EC  - The Enable Cutter Instruction
+           FR  - The Frame Advance Instruction *
+           LA  - The Line Attributes Instruction *
+                 Only round line ends and line joins
+                 are supported yet.
+           LM  - The Label Mode Instructrion *
+           MT  - The Media Type Instruction
+           NR  - The Not Ready Instruction
+           PG  - The Advance Full Page Instruction *
+           PP  - The Pixel Placement Instruction
+           QL  - The Quality Level Instruction
+           RF  - The Raster Fill Definition *
+           RP  - The Replot Instruction
+           ST  - The Sort Instruction
+
+                 * - may be supported in next SPLOT versions
+

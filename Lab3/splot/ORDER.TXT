@@ -1,0 +1,74 @@
+   Order Form for SPLOT - The Plotter Simulator (Win32 version)
+
+ Your Name: _____________________________________________________________
+
+ Company: _______________________________________________________________
+
+ Address: _______________________________________________________________
+
+    City: _____________________________ Prov/State: _____________________
+
+ Country: _____________________________ ZIP/Postal: _____________________
+
+ E-mail: ______________________________ Tel./Fax:________________________
+
+ If you are registered user already, your serial number: ________________
+
+  Licence:  [ ]  single user    [ ]  multi user    [ ]  multisystem site
+
+  Number of users / sites : ______        [ ]  unlimited licence
+  Include      [ ] diskette with each additional copy
+
+  Payment:     [ ]  Cash (money enclosed)
+               [ ]  Credit card (fill out card information below)
+               [ ]  Bank or travelers cheque  (payable in US funds)
+               [ ]  International Money Order (payable in US funds)
+               [ ]  Send me an invoice first
+
+  I'd like to order the SPLOT program for the following plotter type(s):
+
+  [ ] HP-GL/2 pen plotter .............................. ____________ USD
+
+  [ ] HP-GL/2 raster device ............................ ____________ USD
+
+  [ ] HP 7470A ......................................... ____________ USD
+
+  [ ] HP 7475A ......................................... ____________ USD
+
+  [ ] HP 7440A ColorPro ................................ ____________ USD
+
+  [ ] HP 7550A ......................................... ____________ USD
+
+  [ ] HP DraftPro ...................................... ____________ USD
+
+  [ ] HP DraftMaster ................................... ____________ USD
+
+  [ ] Roland DXY ....................................... ____________ USD
+
+  [ ] Roland GRX 300/400 ............................... ____________ USD
+
+  Additional diskettes ................................. ____________ USD
+
+  TOTAL AMOUNT ......................................... ____________ USD
+
+  I hereby authorize the above amount to be charged to my
+
+     [ ] MasterCard          [ ] VISA          [ ] American Express
+
+  Name as it appears on card:____________________________________________
+
+  Card number:________________________________ Expiration date:__________
+
+  Signature:_________________________________
+
+  Your comments: ________________________________________________________
+
+  _______________________________________________________________________
+              (add any additional comments you wish separately)
+
+ Mail this form to:  Alexandr Novy
+                     Chynovska 487
+                     391 56 Tabor 
+                     Czech Republic
+ or fax it to:  +420-361-254870
+

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0031)http://psdraw.narod.ru/les3.htm -->
+<HTML><HEAD><TITLE>Язык программирования PostScript: Урок 3</TITLE><LINK 
+href="les3_files/main.css" type=text/css rel=STYLESHEET>
+<META http-equiv=Content-Type content="text/html; CHARSET=Windows-1251">
+<META 
+content="PostScript программирование рисование печать язык программирования DPS lang .ps создание" 
+name=Keywords>
+<META content="MSHTML 6.00.2800.1528" name=GENERATOR></HEAD>
+<BODY topMargin=10>
+<TABLE borderColor=#c6c6c6 cellSpacing=3 width="100%" border=1>
+  <TBODY>
+  <TR bgColor=black>
+    <TD vAlign=top align=left width="20%">
+      <P class=level0><A href="http://psdraw.narod.ru/index.htm">Новости</A>
+      <P class=level0><A href="http://psdraw.narod.ru/main.htm">О проекте</A>
+      <P class=level0><A href="http://psdraw.narod.ru/why.htm">Зачем?</A>
+      <P class=level0><A href="http://psdraw.narod.ru/soft.htm">Используемое 
+      ПО</A>
+      <P class=level0><A href="http://psdraw.narod.ru/metoda.htm">Методика 
+      разработки сцен на PostScript</A>
+      <P class=level0><A href="http://psdraw.narod.ru/stnd.htm">Операторы языка 
+      PostScript</A>
+      <P class=level0><A href="http://psdraw.narod.ru/lib.htm">Библиотека</A>
+      <P class=level0><A href="http://psdraw.narod.ru/les.htm">Изучение 
+языка</A>
+      <P class=level1><A href="http://psdraw.narod.ru/les1.htm">Урок 1</A>
+      <P class=level1><A href="http://psdraw.narod.ru/les2.htm">Урок 2</A>
+      <P class=level1>Урок 3
+      <P class=level1><A href="http://psdraw.narod.ru/les4.htm">Урок 4</A>
+      <P class=level1><A href="http://psdraw.narod.ru/les5.htm">Урок 5</A>
+      <P class=level1><A href="http://psdraw.narod.ru/les6.htm">Урок 6</A>
+      <P class=level1><A href="http://psdraw.narod.ru/les7.htm">Урок 7</A>
+      <P class=level0><A href="http://psdraw.narod.ru/s_sss.htm">Статьи</A>
+      <P class=level0><A 
+      href="http://psdraw.narod.ru/links.htm">Ссылки...</A></P></TD>
+    <TD vAlign=top>
+      <H1>Занятие третье</H1>
+      <H2>Кривые</H2>
+      <P>Для построения реального изображения одних отрезков прямых линий явно 
+      недостаточно. Поэтому в PostScript для построения нужных кривых, 
+      окружностей и дуг окружностей имеется ряд операторов. Во-первых, оператор 
+      <B>arc</B>. Он добавляет окружность к текущей траектории и требует наличия 
+      в стеке пяти аргументов: 
+      <UL>
+        <LI>координат х, у центра окружности; 
+        <LI>радиуса; 
+        <LI>угла начала; 
+        <LI>угла конца дуги. </LI></UL>
+      <P>Угол строится против часовой стрелки: <PRE class=example>             100 100 42 30 110 arc </PRE>
+      <P>Аналогичный <B>arc</B> оператор <B>arcn</B> строит угол по часовой 
+      стрелке. Сравните: <PRE class=example>             100 100 42 30 110 arcn </PRE>
+      <P>Эти операторы ведут себя несколько иначе, если уже существует точка 
+      текущей траектории -- тогда дуга соединяется с ней прямой линией. 
+      Сравните: <PRE class=example>    newpath
+         150 200 60 30 150 arc
+    stroke </PRE>
+      <P>и <PRE class=example>    newpath
+        150 200 moveto
+        150 200 60 30 150 arc
+    stroke </PRE>
+      <P>Чтобы нарисовать окружность, нужно задать <B>arc</B> угол в 360 
+      градусов, например: <PRE class=example>       150 200 60 0 360 arc </PRE>
+      <P>Попробуйте, используя оператор <B>arc</B>, нарисуйте произвольную 
+      ромашку с 4, 6 и 9 лепестками. Напишите процедуру, аргументом которой 
+      будет число лепестков. 
+      <P>Эллипсы можно получить, изменяя при рисовании окружности масштабы по 
+      осям координат. Напишите программу, в которой это используется. 
+      <H2>Сглаживание углов</H2>
+      <P>Пересекающиеся линии часто бывает необходимо соединить плавной кривой. 
+      В PostScript для этого существует удобный оператор <B>arcto</B>. В 
+      качестве операндов ему в стеке задаются координаты двух точек и радиус, т. 
+      е.: <PRE class=example>        x1 y1 x2 y2 r arcto </PRE>
+      <P>Он рисует сегмент прямой линии от текущей точки по направлению к точке 
+      х1, у1, а затем дугу до её пересечения со второй прямой. 
+      <P><B>arcto</B> возвращает в стеке координаты начала и конца дуги. Если 
+      они не нужны, то эти числа следует удалить из стека: <PRE class=example>       4 {pop} repeat  </PRE>
+      <P>Используя оператор <B>arcto</B>, нарисуем какую-нибудь карточку: <PRE class=example>      /clearstack {
+          4  { pop } repeat
+      } def
+
+           200 300 translate
+             0  20 moveto
+    0 72 108 72 20 arcto
+                   clearstack
+
+   108 72 108 0 20 arcto
+                   clearstack
+      108 0 0 0 20 arcto
+                   clearstack
+       0 0 0 72 20 arcto
+                   clearstack
+               fill
+        0.5 setgray
+    80 45 20 0 360 arc
+               fill
+
+    /Helvetica findfont
+            25 scalefont
+               setfont
+
+         30 50 moveto
+     (My Card) show
+
+     showpage </PRE>
+      <H2>Условные переходы</H2>
+      <P>Введем понятие выполняемого массива. Это более формальное название 
+      объекта, который ранее был назван процедурой. Какая разница для PostScript 
+      между строками: <PRE class=example>          12 5 sub
+    и
+          { 12 5 sub }  </PRE>
+      <P>В первом случае числа <B>12</B> и <B>5</B> будут помещены в стек и 
+      будет выполнена операция вычитания, а во втором -- эти числа и оператор 
+      <B>sub</B> будут помещены в массив, который затем будет занесен в стек. 
+      Выполняемому массиву может предшествовать имя, задаваемое в виде литерала, 
+      а закрывать его может оператор <B>def</B>, который ассоциирует его с 
+      именем в текущем словаре. 
+      <P>Выполняемый массив может использоваться также в некоторых управляющих 
+      операторах, таких как <B>repeat</B>. В этом случае выполняемый массив 
+      содержит операции, которые будут иметь место, когда выполнятся условия для 
+      условного оператора. 
+      <H3>Оператор if</H3>
+      <P>Прежде чем рассмотреть этот популярный во всех процедурных языках 
+      оператор, посмотрим, как записываются операции сравнения чисел. В 
+      PostScript, напоминаю, операторы сравнения следуют за сравниваемыми 
+      величинами. 
+      <TABLE cellSpacing=2 cellPadding=2 align=center border=0>
+        <TBODY>
+        <TR>
+          <TD align=middle><B>Оператор</B></TD>
+          <TD width="40%">&nbsp; </TD>
+          <TD align=middle><B>Значение</B></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>eg</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>= (равно)</P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>gt</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>&gt; (больше)</P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>ge</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>&gt;= (больше или равно)</P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>ne</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>&lt;&gt; (не равно)</P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>lt</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>&lt; (меньше)</P></TD></TR>
+        <TR>
+          <TD align=middle>
+            <P>le</P></TD>
+          <TD width="40%">&nbsp;</TD>
+          <TD align=middle>
+            <P>&lt;= (меньше или равно)</P></TD></TR></TBODY></TABLE>
+      <P>Логические операторы: <B>not and or</B> и <B>xor</B>. 
+      <P>Результат операции сравнения или логической операции -- логическое 
+      значение <B>true</B> или <B>false</B>. Оператор <B>if</B> берет из стека 
+      логический объект и выполняемый массив. Если значение логического объекта 
+      <B>true</B>, то выполняются операции, записанные в этом массиве. Например: 
+<PRE class=example>  %%% Определяем переменные
+        /step         15 def
+        /rightmargin 450 def
+
+  %%% Определяю функцию
+        /checkmargin {
+           currentpoint pop   % оставляет в стеке х
+           rightmargin
+           gt {               % Если число на вершине стека больше 450
+                  0 step      % то это и выполняем
+                    translate
+                0 0 moveto
+           } if               % в противном случае ничего не делаем
+        } def   </PRE>
+      <P>Процедура получает координату текущей точки и сравнивает её со 
+      значением правой границы рабочего поля. Если условие выполняется, то 
+      происходит перенос начала координат на следующую строку. 
+      <H3>Оператор ifelse</H3>
+      <P>Позволяет выбрать в зависимости от условия выполнение одной или другой 
+      последовательности операторов. Его формат: <PRE class=example>            условие {ор.1} {op.2} ifelse </PRE>
+      <P>Если результат выполнения условия <B>true</B>, выполняется 
+      последовательность <B>{op.1}</B>, иначе -- <B>{op.2}</B>. 
+      <H2>У попа была собака</H2>
+      <P>Эта фраза замечательна тем, что мы с детства получаем представление о 
+      рекурсии. PostScript поддерживает рекурсивный вызов процедур, т. е. когда 
+      процедура вызывает сама себя. Классический пример -- вычисление 
+      факториала: <PRE class=example>      /factorial {                  % в стеке n
+            dup 1
+            gt {
+               dup 1
+               sub
+               factorial
+               mul
+            } if
+      } def
+  % вызов
+          5 factorial
+          cvs show  </PRE>
+      <P>Новый оператор <B>cvs</B> преобразует число из вершины стека и помещает 
+      его в заданную строку. Дело в том, что оператор <B>show</B> может печатать 
+      только строки. Кроме чисел, <B>cvs</B> преобразует и логические величины 
+      -- они заменяются в зависимости от значения словами <B>true</B> или 
+      <B>false</B>. Вот пример процедуры, печатающей целое число из стека: <PRE class=example>     /printint {
+         (   ) cvs
+         show
+     } def  % строка первоначально содержит 3 пробела </PRE>
+      <P>Оператор <B>string</B> создает строку длиной <B>n</B>. Определение 
+      строковой переменной выглядит так: <PRE class=example>    /nstr 7 string def </PRE>
+      <P>где <B>7</B> -- длина строки (знаков). 
+      <P>Рекурсивный вызов процедур даёт возможность рисовать фрактальные 
+      картинки, но это мы попробуем сделать на следующем занятии, когда изучим 
+      конструкции циклов. 
+      <P class=date>16.11.2001 </P></TD></TR></TBODY></TABLE>
+<CENTER>
+<HR>
+
+<HR width="50%">
+©Фурашев А. 2002<BR><A href="mailto:psdraw@narod.ru">e-mail</A>
+<HR width="25%">
+
+<HR width="12%">
+<!-- ><!-- "><!-- '><!-- --></TEXTAREA></FORM> </TITLE></COMMENT></A>
+<DIV></DIV></SPAN></ILAYER></LAYER></IFRAME></NOFRAMES></STYLE></NOSCRIPT></TABLE></SCRIPT></APPLET></FONT>
+<STYLE>#bn {
+	DISPLAY: block
+}
+#bt {
+	DISPLAY: block
+}
+</STYLE>
+
+<SCRIPT language=JavaScript src="les3_files/163"></SCRIPT>
+<!-- mailto:spm111@yandex.ru --></CENTER></BODY></HTML>

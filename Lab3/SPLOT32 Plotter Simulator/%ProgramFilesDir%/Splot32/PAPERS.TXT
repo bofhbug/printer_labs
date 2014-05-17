@@ -1,0 +1,182 @@
+
+	   S P L O T  -  The Pen Plotter Simulator V3.2 for Win32
+	   ------------------------------------------------------
+		   Copyright (C) 1991-99 by Alexandr NOVY
+			     All rights reserved.
+
+				December 1999
+
+				  PAPERS.TXT
+
+         This file describes how to define custom paper sets used  by
+	the SPLOT program for individual plotter types.
+
+         A paper set is a group of maximum 30 paper sizes from  which
+	you can select default paper size (plotter hard-clip  limits)
+	in  the  Paper  Size  dialog.  The  number  30  has origin in
+	combination of  3   possible norms  (ANSI,ISO,Architectural),
+	5  possible  formats  (A,B,C,D,E  for  ANSI  or  ARCH   norm;
+	A4,A3,A2,A1,A0 for ISO norm) and 2 possible modifiers  (named
+	NORMAL and EXPAND). You must define at least one valid  paper
+	size to create a valid paper set.
+
+         The SPLOT program  searches for user  defined paper sets  in
+	the PAPERS.INI file which conforms to Windows  initialization
+	file format. Each found section  defines a new paper set  (if
+	it is valid) except the [PAPERS] section which defines  paper
+	set  assignments  to  individual  plotter  types.   The SPLOT
+	program first searches for the PAPERS.INI file in the startup
+	directory, then in the program directory.
+
+         Because of the present version of the SPLOT program has  not
+	a paper set  edit dialog built  in, you should  edit directly
+	the PAPERS.INI file to  create, redefine or delete  any paper
+	set. The paper set assignment to the current plotter type can
+	be done in the Paper Size dialog.
+
+         The general syntax for defining a paper set is:
+
+        [PAPER_SET_NAME]
+        keyword1 = ...
+        keyword2 = ...
+        .
+        .
+        .
+
+	 The valid paper  size is defined  by its X  and Y dimensions
+	expressed  in  plotter  units  and  is  identical  to plotter
+	hard-clip limits  (see your  HP-GL or  HP-GL/2 reference  for
+	description  of  plotter  hard-clip  limits). The one plotter
+	unit is equal to 0.025 mm. The larger dimension of the  paper
+	size always represents the  X axis in non-rotated  state (see
+	your  HP-GL  or  HP-GL/2  reference  for  description  of  RO
+	instruction). These  plotter types  do not  accept a  plotter
+	size dimension  larger than  32767 plotter  units:   HP7470A,
+	HP7475A, HP7440A,  HP DraftPro  7570A and  Roland DXY.   Note
+	that you can  define only the  dimensions of the  paper size.
+	The origin  of plotter  coordinates is  determined by plotter
+	type. These  plotter types  have origin  always in lower-left
+	corner of  the hard-clip  limits:   HP-GL/2 plotter, HP7470A,
+	HP7475A,  HP7440A  and  HP7550A.  These  plotter  types  have
+	normally origin in center  of the hard-clip limits,  although
+	the SPLOT program enables  you set origin also  in lower-left
+	corner: HP DraftPro, HP DraftMaster, Roland GRX 300/400.
+
+	Syntax for paper size definition:
+	 PKEYWORD = Xdimension x Ydimension
+	   or
+	 PKEYWORD = Xdimension,Ydimension
+	where PKEYWORD identifies the defined paper size (see the
+	list bellow).
+
+	Examples:
+         ANSI_A=10170 x 7840
+         ISO_A4=2*4820 x 2*3560
+         ISO_A4E=2*5260 x 2*4000
+
+        Note  that  you  can  use  simple multiplication in dimension
+        definition. It  facilitates you  to enter  dimensions if your
+        plotter  has  origin  of  plotter  coordinates  in  center of
+	hard-clip limits  and you  know hard-clip  limits coordinates
+	(e.g. -4820,-3560, 4820,3560).
+
+        List of all paper size keywords:
+         ANSI_A  - defines dimensions of ANSI A NORMAL paper size
+         ANSI_AE - defines dimensions of ANSI A EXPANDED paper size
+         ANSI_B  - defines dimensions of ANSI B NORMAL paper size
+         ANSI_BE - defines dimensions of ANSI B EXPANDED paper size
+         ANSI_C  - defines dimensions of ANSI C NORMAL paper size
+         ANSI_CE - defines dimensions of ANSI C EXPANDED paper size
+         ANSI_D  - defines dimensions of ANSI D NORMAL paper size
+         ANSI_DE - defines dimensions of ANSI D EXPANDED paper size
+         ANSI_E  - defines dimensions of ANSI E NORMAL paper size
+         ANSI_EE - defines dimensions of ANSI E EXPANDED paper size
+         ISO_A4  - defines dimensions of ISO A4 NORMAL paper size
+         ISO_A4E - defines dimensions of ISO A4 EXPANDED paper size
+         ISO_A3  - defines dimensions of ISO A3 NORMAL paper size
+         ISO_A3E - defines dimensions of ISO A3 EXPANDED paper size
+         ISO_A2  - defines dimensions of ISO A2 NORMAL paper size
+         ISO_A2E - defines dimensions of ISO A2 EXPANDED paper size
+         ISO_A1  - defines dimensions of ISO A1 NORMAL paper size
+         ISO_A1E - defines dimensions of ISO A1 EXPANDED paper size
+         ISO_A0  - defines dimensions of ISO A0 NORMAL paper size
+         ISO_A0E - defines dimensions of ISO A0 EXPANDED paper size
+         ARCH_A  - defines dimensions of ARCH A NORMAL paper size
+         ARCH_AE - defines dimensions of ARCH A EXPANDED paper size
+         ARCH_B  - defines dimensions of ARCH B NORMAL paper size
+         ARCH_BE - defines dimensions of ARCH B EXPANED paper size
+         ARCH_C  - defines dimensions of ARCH C NORMAL paper size
+         ARCH_CE - defines dimensions of ARCH C EXPANED paper size
+         ARCH_D  - defines dimensions of ARCH D NORMAL paper size
+         ARCH_DE - defines dimensions of ARCH D EXPANED paper size
+         ARCH_E  - defines dimensions of ARCH E NORMAL paper size
+         ARCH_EE - defines dimensions of ARCH E EXPANED paper size
+
+ 	 Along  with  a  paper  size  you  can define default scaling
+	points for this  paper size. The  scaling points are  used by
+	the SC (scale) instruction to establish user-unit scaling and
+	can be  redefined by  the IP  instruction (see  your HP-GL or
+	HP-GL/2  reference  for  details).  You  can  define  default
+	scaling points as relative or absolute. If you do not  define
+	any  default  scaling  points  for  a paper size, the default
+	scaling  points  are  always  identical  to  hard-clip  limit
+	corners.
+
+	 The  relative  scaling  points  are determined relatively to
+	lower-left  and  upper-right  corners  of  paper size and are
+	expressed in plotter units. When you define relative  scaling
+	points,  they  are  defined  for  entire  paper  set  and all
+	absolute scaling  points definitions  in this  paper set  are
+	ignored.  These  plotter  types  use  only  relative  scaling
+	points:  HP DraftPro, HP DraftMaster, Roland GRX 300/400  and
+	HP-GL/2 plotter. For the HP-GL/2 plotter the default  scaling
+	points are always identical  to hard-clip limit corners  (they
+	are zero relative), so it ignores all default scaling  points
+	definitions.
+
+	Syntax for relative scaling points definition:
+	 IP_REL = P1X_REL,P1Y_REL,P2X_REL,P2Y_REL
+	Default scaling points are computed as follows:
+	 P1X_DEF=MIN_PLT_X+P1X_REL
+	 P1Y_DEF=MIN_PLT_Y+P1Y_REL
+	 P2X_DEF=MAX_PLT_X-P2X_REL
+	 P2Y_DEF=MAX_PLT_Y-P2Y_REL
+
+	Example:
+	 IP_REL = 600,600,600,600
+	 ; default for HP DraftMaster, DraftPro and Roland GRX
+
+
+         The  absolute  scaling  points  are  determined  in absolute
+	plotter  coordinates  and  can  be  defined  separately   for
+	non-rotated and  rotated states  (see your  HP-GL or  HP-GL/2
+	reference for description of RO instruction). If the  rotated
+	scaling points are not  separately defined, they are  created
+	by rotation of non-rotated scaling points.  Note that if  you
+	define relative scaling points,  they are defined for  entire
+	paper set and all absolute scaling points definitions in this
+	paper set are ignored. Also note that these plotter types use
+	only relative scaling points and ignore all absolute  scaling
+	points definitions: HP  DraftPro, HP DraftMaster,  Roland GRX
+	300/400 and HP-GL/2 plotter.
+
+        Syntax for absolute scaling points definition:
+	 IP_PKEYWORD = P1X_ABS,P1Y_ABS,P2X_ABS,P2Y_ABS
+	   for non-rotated absolute scaling points
+	 IPR_PKEYWORD = P1RX_ABS,P1RY_ABS,P2RX_ABS,P2RY_ABS
+	   for rotated absolute scaling points
+	where PKEYWORD identifies the corresponding paper size (see
+	the list above) and P1X(R)_ABS < P2X(R)_ABS and
+	P1Y(R)_ABS < P2Y(R)_ABS.
+
+        Examples:
+	 IP_ISO_A4=603,521,10603,7721
+	  ; non-rotated absolute scaling points for ISO A4 NORMAL
+	    paper size
+	 IPR_ISO_A4=0,610,7200,10610
+	  ; rotated absolute scaling points for ISO A4 NORMAL paper
+	    size
+
+
+	For more examples study  the PAPERS.INI file included  in the
+	SPLOT package.

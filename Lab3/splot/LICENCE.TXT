@@ -1,0 +1,239 @@
+
+     S P L O T  -  The Plotter Simulator V3.2 for Win32
+     --------------------------------------------------
+          Copyright (C) 1991-2000 by Alexandr NOVY
+                   All rights reserved.
+
+
+ This  file  contains   important  licensing, registration and
+ evaluation information about the SPLOT for Windows program.
+
+ SPLOT  is  distributed  as  "Shareware"  or  "User  Supported
+ Software" and is fully copyrighted.  If you will register the
+ program you will receive these benefits:
+
+   1) The latest version of SPLOT.
+   2) A technical  reference  in Windows help format  which
+      describes all plotter instructions supported by SPLOT
+      (from ver.3.1 the printed manuals are not supplied so
+      there are no more shipping charges).
+   3) An end to the nag screens and opening banners.
+   4) Deep discounts on the next major versions.
+   5) The warming feeling.
+
+ There are three types of license:
+   1) A single user license permits a single user to use SPLOT
+      only on a single computer at a time.
+   2) A multi user license permits to simultaneously use  more
+      SPLOT copies on  more computers at  a time according  to
+      the  licensed  number  of  users.  The unlimited license
+      (with  no  limitation  on  simultaneous  use)  is   also
+      available and it is equal to the licensing of 50 users.
+   3) A multisystem site license is designated especially  for
+      use on  computer networks  with a  dedicated server from
+      which the  network users  can run  SPLOT on workstations
+      and so it permits simultaneous use on one network.  Only
+      one copy of the SPLOT executable file can exist in whole
+      network and it must be situated on the dedicated server.
+      Generally the  multisystem site  license can  be used on
+      any multiuser environment  as long as  only one copy  of
+      the SPLOT  executable file  exists in  that environment.
+      However  note  that  this  license  cannot  be  used  on
+      peer-to-peer networks (use  multi user license  for that
+      purpose). You  can also  order a multisystem license for
+      more sites  (servers).   The unlimited  multisystem site
+      license (with no limitation to number of sites) is  also
+      available and it is equal to the licensing of 20 sites.
+
+ The  single  user  registration fee  for SPLOT for Windows is
+ $65.00 (US funds).  The  multisystem  site  fee  for SPLOT is
+ $140.00.
+
+ Since  the  SPLOT  program  is  always distributed with a DLL
+ library (libraries)  adapted for  a certain  plotter type, do
+ not forget to mention the plotter type with which you want to
+ use the  SPLOT program.   A list  of plotters  you can choose
+ from is given in the  PLOTTERS.TXT file.  In this  file there
+ are also given the parameters of these plotters together with
+ a list of supported instructions. It makes possible to choose
+ a suitable plotter  type even if  your plotter is  not listed
+ (most  plotters  are  compatible  with  some plotter from the
+ list). Of course, you can  order SPLOT program with more  DLL
+ libraries  for  different  plotter  types.   In this case the
+ single  user  registration  fee  for  any  further version is
+ $20.00 and the multisystem site fee is $40.00. This principle
+ is also  valid for  an upgrade.   If you  have registered  at
+ least one SPLOT program version  at the full price of  $65.00
+ ($140.00), now and in the  future only $20.00 ($40.00) is  to
+ be paid for all other versions.
+
+ Special offer:
+ Registered users of  the MS-DOS version of  the SPLOT program
+ can order the MS-Windows version for $45.00 only ( $95.00 for
+ the multisystem site licence).
+ In this  case fill out your  serial number  in order form and
+ mark it as `upgrade from DOS version'.
+
+ The price for multi user license is a corresponding  multiple
+ of the single  user registration fee  reduced by a  graduated
+ discount. The discount is  graduated according to the  number
+ of users:
+         Number of users  Discount [percent]
+              2 - 10   20 %
+             11 - 20   25 %
+             21 - 30   30 %
+             31 - 40   35 %
+             41 - 50   40 %
+ The  number  of  50  or  more  users  equals to the unlimited
+ license.
+
+ The  price  for  more  multisystem  sites  is a corresponding
+ multiple of one multisystem  site license price reduced  by a
+ graduated discount.  The discount  is graduated  according to
+ the number of sites:
+         Number of users  Discount [percent]
+              2 - 10   20 %
+             11 - 20   25 %
+ The  number  of  20  or  more  sites  equals to the unlimited
+ license.
+
+ If you will order a multi license, you will normally  receive
+ only one  master copy  of the  SPLOT files  on diskette along
+ with permission  to make  its own  copies of  diskette.   The
+ number of these copies is  limited by the number of  licensed
+ users/sites.  If  you  want  to  receive a diskette with each
+ ordered copy, you should  pay additional $1.00 per  diskette.
+ The  number  of  diskettes  for  which  you  should  pay   is
+ determined by the following expression:
+     n = nu-1
+ where nu is number of users.
+
+ To  calculate  correct  registration  price,  please  use the
+ Calculate  SPLOT  registration  fee  dialog (invoked from the
+ menu bar Help  item), which will  help  you  namely for multi
+ license order.
+
+ Author can accept payment in these three ways:
+
+  1) In cash (money enclosed) - this is the most quick method,
+     but at your risk.
+
+  2) Credit card  -  MasterCard, VISA and American Express are
+     accepted.  Please,  fill out  carefully  the  credit card
+     information in order form.
+     If your credit card is American Express please let me
+     know also your billing address if it differs from the
+     delivery address stated on the order.
+
+  3) Bank or travelers cheque enclosed - please make  a cheque
+     payable to Alexandr Novy and in US funds.
+     The International Money Orders are also accepted.
+
+  4)  Author can send to you first an invoice with an  account
+     number.  Then you will receive the SPLOT program as  soon
+     as your payment will be done to this account number.
+
+ To register, please use the Registration/Order Form  supplied
+ with this package  (as provided in  the file ORDER.TXT  or in
+ the help file).
+
+ If you  cannot pay  in advance  then I  need to  receive your
+ legal corporate order with a valid PO number and signed by an
+ authorized person(s). For  information purposes you  can also
+ enclose the SPLOT  order form (as  provided in the  ORDER.TXT
+ file).  Then you will receive the ordered software along with
+ invoice.
+
+ Please send a completed order form (along with a payment) to:
+
+          Alexandr Novy
+          Chynovska 487
+          391 56 Tabor
+          Czech Republic
+
+ You can also fax your order to +420-361-254870.
+
+ If your order will contain only a request for an invoice  you
+ can also e-mail it to anovy@swplot.com
+
+ Please  do  not  e-mail  me  your  credit card data. I cannot
+ accept orders with credit  card numbers via e-mail  because I
+ have agreement for mail orders only and I need a credit  card
+ owner's signature  on the  order. So  you should  mail or fax
+ these orders.
+
+ If your credit  card is American  Express please let  me know
+ also your  billing address  if it  differs from  the delivery
+ address stated on the order.
+
+
+
+                EVALUATION AGREEMENT
+
+ SPLOT  is not  and  has never been  public  domain  software,
+ nor is it free software.
+
+ Non-licensed users are granted a limited license to use SPLOT
+ on  a  30-day  trial  basis  for  the  purpose of determining
+ whether SPLOT is suitable for their needs.  The use of SPLOT,
+ except for the initial 30-day trial,  requires  registration.
+ The use of unlicensed copies of SPLOT by any person,business,
+ corporation or any other entity is strictly prohibited.
+
+ No one may modify or  patch the SPLOT executable file  in any
+ way, including but not limited to decompiling, disassembling,
+ or otherwise reverse engineering the program.
+
+ A limited  license is  granted to  copy and  distribute SPLOT
+ only  for  the  trial  use  of  others,  subject to the above
+ limitations, and also the following:
+
+ 1) SPLOT must be  copied in unmodified form,  complete
+    with the file containing this license information.
+
+ 2) The full machine-readable SPLOT documentation  must
+    be included with each copy.
+
+ 3) SPLOT  may not  be distributed  in conjunction with
+    any other product without a specific license to  do
+    so from author.
+
+ 4) No  fee,  charge,  or  other  compensation  may  be
+    requested or accepted, except as authorized below:
+
+    a) Operators of  electronic bulletin board  systems
+       (sysops)   may   make   SPLOT   available    for
+       downloading as long as the above conditions  are
+       met.   An overall  or time-dependent  charge for
+       the  use  of  the   bulletin  board  system   is
+       permitted as  long as  there is  not a  specific
+       charge for the download of SPLOT.
+
+    b) Vendors of user-supported or shareware  software
+       may  distribute  SPLOT  after  obtaining written
+       permission  from  author.  Such  permission   is
+       usually granted. Vendors may charge a reasonable
+       disk duplication and handling fee.
+
+
+
+                LICENSING AGREEMENT
+
+ Licensed user are bound to the following licensing agreement.
+
+ You may not transfer your license without written  permission
+ from author.  A single  user license  permits a  user to  use
+ SPLOT only on a single computer at a time.
+
+ This product is distributed  AS IS.  The  author specifically
+ disclaims all  warranties, expressed  or implied,  including,
+ but not limited to, implied warranties of merchantability and
+ fitness for a particular  purpose with respect to  defects in
+ the diskette and  documentation, and program  license granted
+ herein,  in  particular,  without  limiting  operation of the
+ program license with  respect to any  use or purpose.   In no
+ event shall the author  be  liable for any loss of  profit or
+ damage  including  but  not  limited  to special, incidental,
+ consequential or other damages.
+
+ By licensing SPLOT you agree to the above licensing agreement.

@@ -1,0 +1,803 @@
+
+    S P L O T  -  The Pen Plotter Simulator V3.2 for Win32
+    ------------------------------------------------------
+          Copyright (C) 1991-2000 by Alexandr NOVY
+                All rights reserved.
+
+                   October 2000
+
+
+                   PLOTTERS.TXT
+
+ This file  contains technical  information about  pen plotter
+ types supported by the  SPLOT program. It also  contains list
+ of  supported  plotter  instructions  for each listed plotter
+ type.
+
+
+          1. General Information:
+
+   The  SPLOT  program  is   available  for  various   plotter
+ versions.   This means  that there  are provided  DLL modules
+ designated for a certain  plotter type. This principle  gives
+ the maximum  reliability of  simulation of  the given plotter
+ type.  At present the  DLL modules for the following  plotter
+ types are at your disposal:
+
+    Plotter type                          | Plotter syntax
+  ------------------------------------------------------------
+    HP-GL/2 pen plotter                   | HP-GL/2
+    HP-GL/2 raster device                 | HP-GL/2
+    HP 7470A                              | HP-GL
+    HP 7475A                              | HP-GL
+    HP 7440A ColorPro                     | HP-GL
+    HP 7550A                              | HP-GL
+    HP 7570A/7575A/7576A DraftPro DXL/EXL | HP-GL
+    HP 7595A/7596A DraftMaster I/II       | HP-GL
+    ROLAND DXY 1100/1200/1300             | DXY-GL / RD-GL I
+    ROLAND GRX 300/400                    | RD-GL II
+
+   An UNREGISTERED COPY  of the program  is available only  in
+ the version  for the  HP-GL/2,  HP 7475A,  HP DraftMaster and
+ ROLAND DXY plotters.   The versions for  other plotter  types
+ can be received  only on the  basis of regular  registration.
+ See the file LICENCE.TXT for registration information.
+
+
+
+
+   2. Description of Supported Plotters:
+
+ -------------------
+ HP-GL/2 Pen Plotter
+ -------------------
+
+ Syntax: HP-GL/2
+
+ Number of pens: user defined up to 256
+
+ Paper formats: defined by user
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 8
+
+ See the HPGL2.TXT file for more details.
+
+
+
+ ---------------------
+ HP-GL/2 Raster Device
+ ---------------------
+
+ Syntax: HP-GL/2
+
+ Maximum number of pens: user defined up to 256
+ Number of pens: defined by NP instruction, default 8
+
+ Paper formats: defined by user
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 8
+
+ See the HPGL2.TXT file for more details.
+
+
+
+ -------------------------
+ HP 7470A Graphics Plotter
+ -------------------------
+
+ Syntax: HP-GL
+
+ Number of pens: 2
+
+ Paper formats: ISO A4 (210 x 297 mm)
+                ANSI A (8.5 x 11 in.)
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 4
+
+ Number of character sets: 5 (0-4)
+                           (all supported by SPLOT)
+
+ Alphabetical list of plotter instructions supported by
+ the HP7470A version of SPLOT:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PR  - The Plot Relative Instruction
+  PU  - The Pen Up Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+ The following instructions are  NOT supported by the  HP7470A
+ version of  SPLOT (they  are checked  for syntax  only and no
+ action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OI, OO, OP, OS and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+
+
+
+ -------------------------
+ HP 7475A Graphics Plotter
+ -------------------------
+
+ Syntax: HP-GL
+
+ Number of pens: 6
+
+ Paper formats: ISO A4 (210 x 297 mm)
+                ISO A3 (297 x 420 mm)
+                ANSI A (8.5 x 11 in.)
+                ANSI B (11  x 17 in.)
+
+ Plotter unit: 0.02488 mm (0.025 mm in SPLOT)
+
+ Maximal number of digits in decimal fraction to be read: 4
+
+ Number of character sets: 19 (0-4,6-9,30-39)
+                           (all supported by SPLOT)
+
+ Alphabetical list of plotter instructions supported by
+ the HP7475A version of SPLOT:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  EA  - The Edge Rectangle Absolute Instruction
+  ER  - The Edge Rectangle Relative Instruction
+  EW  - The Edge Wedge Instruction
+  FT  - The Fill Type Instruction (Note, that for HP7475A
+        plotter fill angle may be specified in  45 degree
+        increments only.)
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+ The following instructions are  NOT supported by the  HP7475A
+ version of  SPLOT (they  are checked  for syntax  only and no
+ action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OH, OI, OO, OP, OS and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+  - The Page Size Instruction PS - in the SPLOT paper size
+        may be changed only via program control panel.
+
+
+
+ ----------------------------------
+ HP 7440A ColorPro Graphics Plotter
+ ----------------------------------
+ Including HP 17440 Graphics Enhancement Cartridge
+
+ Syntax: HP-GL
+
+ Number of pens: 8
+
+ Paper formats: ISO A4 (210 x 297 mm)
+                ANSI A (8.5 x 11 in.)
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 4
+
+ Number of character sets:
+  5 without HP 17440 (0-4)
+  19 with   HP 17440 (0-4,6-9,30-39)
+  (all supported by SPLOT)
+
+ Alphabetical list of plotter instructions supported by
+ the HP7440A ColorPro version of SPLOT:
+
+  AA  - The Arc Absolute Instruction (HP 17440)
+  AR  - The Arc Relative Instruction (HP 17440)
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction (HP 17440)
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  EA  - The Edge Rectangle Absolute Instruction (HP 17440)
+  EP  - The Edge Polygon Instruction (HP 17440)
+  ER  - The Edge Rectangle Relative Instruction (HP 17440)
+  EW  - The Edge Wedge Instruction (HP 17440)
+  FP  - The Fill Polygon Instruction (HP 17440)
+  FT  - The Fill Type Instruction (HP 17440)
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PM  - The Polygon Mode Instruction (HP 17440)
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction (HP 17440)
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction (HP 17440)
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction (HP 17440)
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction (HP 17440)
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+ The following instructions are  NOT supported by the  HP7440A
+ ColorPro version of SPLOT  (they are checked for  syntax only
+ and no action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OH, OI, OO, OP, OS and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+
+
+
+ -------------------------
+ HP 7550A Graphics Plotter
+ -------------------------
+
+ Syntax: HP-GL
+
+ Number of pens: 8
+
+ Paper formats: ISO A4 (210 x 297 mm)
+                ISO A3 (297 x 420 mm)
+                ANSI A (8.5 x 11 in.)
+                ANSI B (11  x 17 in.)
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 8
+
+ Number of character sets: 40 (0-9,30-39,10-19,40-49)
+                           (20 supported by SPLOT (0-9,30-39))
+
+ Alphabetical list of plotter instructions supported by
+ the HP7550A version of SPLOT:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  CT  - The Chord Tolerance Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DL  - The Define Downloadable Character Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  EA  - The Edge Rectangle Absolute Instruction
+  EP  - The Edge Polygon Instruction
+  ER  - The Edge Rectangle Relative Instruction
+  ES  - The Extra Space Instruction
+  EW  - The Edge Wedge Instruction
+  FP  - The Fill Polygon Instruction
+  FT  - The Fill Type Instruction
+  GM  - The Graphics Memory Instruction *
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LO  - The Label Origin Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PM  - The Polygon Mode Instruction
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SG  - The Select Pen Group Instruction *
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+        * - supported only partially
+
+ The following instructions are  NOT supported by the  HP7550A
+ version of  SPLOT (they  are checked  for syntax  only and no
+ action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OG, OH, OI, OK, OL, OO, OP, OS, OT
+     and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+  - And this:
+    AF or AH - The Advance Page Instruction *
+    AP  - The Automatic Pen Operations Instruction
+    AS  - The Acceleration Select Instruction
+    BF  - The Buffer Plot Instruction
+    BL  - The Buffer Label Instruction *
+    CC  - The Character Chord Angle Instruction *
+    CM  - The Character Selection Mode Instruction *
+    CV  - The Curved Line Generator Instruction
+    DS  - The Designate Character Set into Slot Instruction *
+    FS  - The Force Select Instruction
+    GC  - The Group Count Instruction
+    GP  - The Group Pen Instruction *
+    IV  - The Invoke Character Slot Instruction *
+    KY  - The Define Key Instruction
+    NR  - The Not-Ready Instruction
+    PB  - The Print Buffered Label Instruction *
+    PG  - The Page Feed Instruction *
+    RP  - The Replot Instruction
+    UF  - The User-Defined Fill Type Instruction *
+    WD  - The Write to Display Instruction
+
+          * - may be supported in next versions
+
+
+
+ ----------------------------
+ HP DraftPro Graphics Plotter
+ ----------------------------
+ HP 7570A DraftPro
+ HP 7575A DraftPro DXL
+ HP 7576A DraftPro EXL
+
+ Syntax: HP-GL
+
+ Number of pens: 8
+
+ Paper formats: ISO A4 (DXL/EXL only)
+                ISO A3 (DXL/EXL only)
+                ISO A2
+                ISO A1
+                ISO A0 (EXL only)
+                ANSI A (DXL/EXL only)
+                ANSI B (DXL/EXL only)
+                ANSI C
+                ANSI D
+                ANSI E (EXL only)
+                ARCH A (DXL/EXL only)
+                ARCH B (DXL/EXL only)
+                ARCH C
+                ARCH D
+                ARCH E (EXL only)
+                Supports EXPAND mode for each format.
+
+ Note - origin of plotter coordinates is situated to the
+        center of the plotting area (paper).
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 4
+
+ Number of character sets: 21 (0-9,30-39,99)
+                           (all supported by SPLOT)
+
+ Alphabetical list of plotter instructions supported by
+ the HP DraftPro version of SPLOT:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  CT  - The Chord Tolerance Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  DV  - The Direction Vertical Instruction
+  EA  - The Edge Rectangle Absolute Instruction
+  EP  - The Edge Polygon Instruction
+  ER  - The Edge Rectangle Relative Instruction
+  ES  - The Extra Space Instruction
+  EW  - The Edge Wedge Instruction
+  FP  - The Fill Polygon Instruction
+  FT  - The Fill Type Instruction
+  GM  - The Graphics Memory Instruction *
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LO  - The Label Origin Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PE  - The Encoded Polyline Instruction
+  PM  - The Polygon Mode Instruction
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SG  - The Select Pen Group Instruction
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+        * - supported only partially
+
+ The  following  instructions  are  NOT  supported  by  the HP
+ DraftPro version of SPLOT  (they are checked for  syntax only
+ and no action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OH, OI, OO, OP, OS and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+  - And this:
+    AP  - The Automatic Pen Operations Instruction
+    CM  - The Character Selection Mode Instruction *
+    DS  - The Designate Character Set into Slot Instruction *
+    IV  - The Invoke Character Slot Instruction *
+    NR  - The Not-Ready Instruction
+
+          * - may be supported in next versions
+
+
+
+ -------------------------------
+ HP DraftMaster Graphics Plotter
+ -------------------------------
+ HP 7595A DraftMaster I
+ HP 7596A DraftMaster II
+
+ Syntax: HP-GL
+
+ Number of pens: 8
+
+ Paper formats: ISO A4,A3,A2,A1,A0
+  ANSI A,B,C,D,E
+                ARCH C,D,E
+                Supports EXPAND mode for each format.
+
+ Note - origin of plotter coordinates is situated to the
+        center of the plotting area (paper).
+
+ Plotter unit: 0.025 mm
+
+ Maximal number of digits in decimal fraction to be read: 8
+
+ Number of character sets: 64 (0-9,30-39,99,10-19,40-49,
+                               20-29,50-59,60,70,80)
+                          (21 supported by SPLOT (0-9,30-39,99))
+
+ Alphabetical list of plotter instructions supported by
+ the HP DraftMaster version of SPLOT:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  BF  - The Buffer Plot Instruction (NOP)
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  CT  - The Chord Tolerance Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DL  - The Define Downloadable Character Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  DV  - The Direction Vertical Instruction
+  EA  - The Edge Rectangle Absolute Instruction
+  EP  - The Edge Polygon Instruction
+  ER  - The Edge Rectangle Relative Instruction
+  ES  - The Extra Space Instruction
+  EW  - The Edge Wedge Instruction
+  FP  - The Fill Polygon Instruction
+  FT  - The Fill Type Instruction
+  GM  - The Graphics Memory Instruction *
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LO  - The Label Origin Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PM  - The Polygon Mode Instruction
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SG  - The Select Pen Group Instruction *
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VA  - The Adaptive Velocity Instruction (NOP)
+  VN  - The Normal Velocity Instruction (NOP)
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+        * - supported only partially
+
+ The  following  instructions  are  NOT  supported  by  the HP
+ DraftMaster version  of SPLOT  (they are  checked for  syntax
+ only and no action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+    OA, OC, OD, OE, OF, OG, OH, OI, OK, OL, OO, OP, OS, OT
+    and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+  - The Page Size Instruction PS - in the SPLOT paper size
+        may be changed only via program control panel.
+  - And this:
+    AF or AH - The Advance Page Instruction *
+    AP  - The Automatic Pen Operations Instruction
+    AS  - The Acceleration Select Instruction
+    BL  - The Buffer Label Instruction *
+    CC  - The Character Chord Angle Instruction *
+    CM  - The Character Selection Mode Instruction *
+    CV  - The Curved Line Generator Instruction
+    DS  - The Designate Character Set into Slot Instruction *
+    EC  - The Enable Cut Line Instruction
+    FR  - The Frame Advance Instruction
+    FS  - The Force Select Instruction
+    GC  - The Group Count Instruction
+    GP  - The Group Pen Instruction *
+    IV  - The Invoke Character Slot Instruction *
+    KY  - The Define Key Instruction
+    NR  - The Not-Ready Instruction
+    PB  - The Print Buffered Label Instruction *
+    PG  - The Page Feed Instruction *
+    UF  - The User-Defined Fill Type Instruction *
+    WD  - The Write to Display Instruction
+
+          * - may be supported in next versions
+
+
+
+ ------------------
+ ROLAND GRX 300/400
+ ------------------
+
+ Syntax: RD-GL II (corresponds with the HP-GL syntax)
+
+ Paper formats: ISO A4,A3,A2,A1,A0
+                ANSI A,B,C,D,E
+                ARCH C,D,E
+                Supports EXPAND mode for each format.
+                A0 and E formats only for GRX 400 model
+
+ Note - origin of plotter coordinates is situated to the
+        center of the plotting area (paper).
+
+ All other parameters and command set are the same as for
+ the HP DraftMaster plotter.
+
+
+
+ -------------------------
+ ROLAND DXY 1100/1200/1300
+ -------------------------
+
+ Syntax: RD-GL I (corresponds with the HP-GL syntax)
+         DXY-GL
+
+ Number of pens: 8
+
+ Paper formats: ISO A4 (210 x 297 mm)
+                ISO A3 (297 x 420 mm)
+                ANSI A (8.5 x 11 in.)
+                ANSI B (11  x 17 in.)
+                Supports EXPAND mode for each format.
+
+ Plotter unit: 0.025 mm in RD-GL mode
+               0.1 or 0.025 mm in DXY-GL mode
+
+ Maximal number of digits in decimal fraction to be read: 4
+
+ Number of character sets: 19 (0-4,6-9,30-39)
+                           (all supported by SPLOT)
+
+ Alphabetical list of plotter instructions supported by
+ the ROLAND version of SPLOT in RD-GL mode:
+
+  AA  - The Arc Absolute Instruction
+  AR  - The Arc Relative Instruction
+  CA  - The Designate Alternate Character Set Instruction
+  CI  - The Circle Instruction
+  CP  - The Character Plot Instruction
+  CS  - The Designate Standard Character Set Instruction
+  DF  - The Default Instruction
+  DI  - The Absolute Direction Instruction
+  DR  - The Relative Direction Instruction
+  DT  - The Define Terminator Instruction
+  EA  - The Edge Rectangle Absolute Instruction
+  ER  - The Edge Rectangle Relative Instruction
+  EW  - The Edge Wedge Instruction
+  FT  - The Fill Type Instruction (Note, that for ROLAND
+        plotter fill angle may be specified in 45 degree
+        increments only.)
+  IN  - The Initialize Instruction
+  IP  - The Input P1 and P2 Instruction
+  IW  - The Input Window Instruction
+  LB  - The Label Instruction
+  LT  - The Line Type Instruction
+  PA  - The Plot Absolute Instruction
+  PD  - The Pen Down Instruction
+  PR  - The Plot Relative Instruction
+  PT  - The Pen Thickness Instruction
+  PU  - The Pen Up Instruction
+  RA  - The Shade Rectangle Absolute Instruction
+  RO  - The Rotate Coordinate Instruction
+  RR  - The Shade Rectangle Relative Instruction
+  SA  - The Select Alternate Character Set Instruction
+  SC  - The Scale Instruction
+  SI  - The Absolute Character Size Instruction
+  SL  - The Character Slant Instruction
+  SM  - The Symbol Mode Instruction
+  SP  - The Select Pen Instruction
+  SR  - The Relative Character Size Instruction
+  SS  - The Select Standard Character Set Instruction
+  TL  - The Tick Length Instruction
+  UC  - The User Defined Character Instruction
+  VS  - The Velocity Select Instruction (for information only)
+  WG  - The Shade Wedge Instruction
+  XT  - The X-Tick Instruction
+  YT  - The Y-Tick Instruction
+
+ The following  instructions are  NOT supported  by the ROLAND
+ version of SPLOT in RD-GL  mode (they are checked for  syntax
+ only and no action is performed):
+
+  - All escape code sequences.
+  - All output instructions:
+     OA, OC, OD, OE, OF, OH, OI, OO, OP, OS and OW.
+  - Digitizing instructions DP and DC.
+  - The Input Mask Instruction IM.
+  - The Page Size Instruction PS - in the SPLOT paper size
+        may be changed only via program control panel.
+
+ Alphabetical list of plotter instructions supported by
+ the ROLAND version of SPLOT in DXY-GL mode:
+
+  A  - The Circle Center Instruction
+  B  - The Line Scale Instruction
+  C  - The Circle Instruction
+  D  - The Draw Instruction
+  E  - The Relative Circle Instruction
+  G  - The A + Circle Instruction
+  H  - The Home Instruction
+  I  - The Relative Draw Instruction
+  J  - The Pen Change Instruction
+  K  - The A + % Instruction
+  L  - The Line Type Instruction
+  M  - The Move Instruction
+  N  - The Mark Instruction
+  P  - The Print Instruction
+  Q  - The Alpha Rotate Instruction
+  R  - The Relative Move Instruction
+  S  - The Alpha Scale Instruction
+  T  - The Hatching Instruction
+  X  - The Axis Instruction
+  ^  - The Up Instruction
+
+ The following  instructions are  NOT supported  by the ROLAND
+ version of SPLOT in DXY-GL mode (they are checked for  syntax
+ only and no action is performed):
+
+  Y  - The Curve Instruction *
+  _  - The Relative Curve Instruction *
+
+       * - may be supported in next versions
+
+
+ End of list.
