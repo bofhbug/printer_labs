@@ -1,5 +1,12 @@
 newpath
-143 143 moveto
-2 143 mul 2 143 mul lineto
+100 5 moveto
+0 15 rlineto
+15 0 rlineto
+
+
+100 835 moveto
+0 15 rlineto
+15 0 rlineto
 stroke
+
 showpage

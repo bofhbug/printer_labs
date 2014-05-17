@@ -1,0 +1,36 @@
+newpath
+/shape_1_mm 82 def
+/shape_2_mm 101 def
+/shape_3_mm 69 def
+/x_mm 70 def
+/y_mm 8 def
+
+/k 2.83 def
+
+/shape_1 shape_1_mm k mul  def
+/shape_2 shape_2_mm k mul def
+/shape_3 shape_3_mm k mul def
+/x x_mm k mul def
+/y y_mm k mul def
+
+/top_y 842 def
+
+/conv_y {top_y exch sub} def
+
+x y conv_y moveto
+x y shape_1 add conv_y lineto
+x shape_1 add y shape_1 add conv_y lineto
+x shape_1 add y shape_1 add conv_y lineto
+x shape_1 add y conv_y lineto
+x y conv_y lineto
+x shape_1 add y shape_1 add conv_y lineto
+x y shape_1 0.5 mul add conv_y moveto
+x shape_1 add y shape_1 0.5 mul add conv_y lineto
+x  shape_1 0.5 mul add y conv_y moveto
+x  shape_1 0.5 mul add y shape_1 add conv_y lineto
+x y shape_1 add conv_y moveto
+x shape_1 add y conv_y lineto
+
+stroke
+
+showpage

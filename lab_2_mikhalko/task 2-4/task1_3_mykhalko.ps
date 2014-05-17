@@ -1,0 +1,32 @@
+newpath
+/shape_1_mm 82 def
+/shape_2_mm 101 def
+/shape_3_mm 69 def
+/x_mm 70 def
+/y_mm 8 def
+
+/shape_3_mm_h shape_3_mm 0.4 mul def
+
+/k 2.83 def
+/top_y 842 def
+
+0 top_y translate
+k k neg scale
+
+x_mm y_mm moveto
+0 shape_3_mm_h 0.5 mul rmoveto
+shape_3_mm 0.4 mul 0 rlineto
+shape_3_mm 0.2 mul 0 rmoveto
+shape_3_mm 0.4 mul 0 rlineto
+x_mm shape_3_mm 0.4 mul add y_mm moveto
+0 shape_3_mm_h rlineto
+x_mm shape_3_mm 0.6 mul add y_mm moveto
+0 shape_3_mm_h rlineto
+
+
+
+
+
+stroke
+
+showpage

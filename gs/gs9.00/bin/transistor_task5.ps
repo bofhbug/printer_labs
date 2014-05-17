@@ -1,0 +1,24 @@
+/k 2.83 def
+/top_y 842 def
+
+0 top_y translate
+k k neg scale
+
+
+/draw_transistor {/k exch def /y exch def /x exch def
+/k_x {k mul} def
+/k_y {k mul} def
+/k_x_a {k mul x add} def
+/k_y_a {k mul y add} def
+
+
+x y moveto
+0 25 k_y rmoveto
+
+30 k_x_a 25 k_y_a 10 k_x 0 360 arc 
+
+stroke
+} def
+0 0 1 draw_transistor
+
+showpage
