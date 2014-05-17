@@ -1,0 +1,119 @@
+////////////////////////////////
+UninstallName
+GSview 5.0
+
+////////////////////////////////
+RegistryNew
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Ghostgum]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Ghostgum\GSview]
+"5.0"="d:\\Program Files 2\\Ghostgum"
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\App Paths\gsview32.exe]
+@="d:\\Program Files 2\\Ghostgum\\gsview\\gsview32.exe"
+"Path"="d:\\Program Files 2\\Ghostgum\\gsview"
+
+[HKEY_CLASSES_ROOT\.ps]
+@="psfile"
+"Content Type"="application/postscript"
+
+[HKEY_CLASSES_ROOT\.eps]
+@="psfile"
+"Content Type"="application/postscript"
+
+[HKEY_CLASSES_ROOT\MIME\Database\Content Type\application/postscript]
+"Extension"=".ps"
+
+[HKEY_CLASSES_ROOT\psfile]
+@="PostScript"
+
+[HKEY_CLASSES_ROOT\psfile\shell]
+
+[HKEY_CLASSES_ROOT\psfile\shell\open]
+
+[HKEY_CLASSES_ROOT\psfile\shell\open\command]
+@=""d:\\Program Files 2\\Ghostgum\\gsview\\gsview32.exe" "%1""
+
+[HKEY_CLASSES_ROOT\psfile\shell\print]
+
+[HKEY_CLASSES_ROOT\psfile\shell\print\command]
+@=""d:\\Program Files 2\\Ghostgum\\gsview\\gsview32.exe" /p "%1""
+
+[HKEY_CLASSES_ROOT\psfile\DefaultIcon]
+@="d:\\Program Files 2\\Ghostgum\\gsview\\gsview32.exe,3"
+
+////////////////////////////////
+RegistryOld
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\.ps]
+
+[HKEY_CLASSES_ROOT\.eps]
+"Content Type"="application/postscript"
+
+[HKEY_CLASSES_ROOT\MIME\Database\Content Type\application/postscript]
+"Extension"=".ps"
+
+////////////////////////////////
+ShellNew
+Group=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Ghostgum
+
+Name=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Ghostgum\GSview 5.0.LNK
+Path=d:\Program Files 2\Ghostgum\gsview\gsview32.exe
+Description=GSview 5.0
+Arguments=
+
+Name=C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Ghostgum\GSview Readme 5.0.LNK
+Path=d:\Program Files 2\Ghostgum\gsview\Readme.htm
+Description=GSview Readme 5.0
+
+
+////////////////////////////////
+ShellOld
+
+////////////////////////////////
+FileNew
+d:\Program Files 2\Ghostgum\pstotext\pstotext.1
+d:\Program Files 2\Ghostgum\pstotext\pstotext.txt
+d:\Program Files 2\Ghostgum\pstotext\pstotxt3.dll
+d:\Program Files 2\Ghostgum\pstotext\pstotxt3.exe
+d:\Program Files 2\Ghostgum\gsview\gsview32.exe
+d:\Program Files 2\Ghostgum\gsview\gsviewct.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewde.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewen.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewes.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewfr.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewgr.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewit.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewnl.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewru.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewsk.chm
+d:\Program Files 2\Ghostgum\gsview\gsviewse.chm
+d:\Program Files 2\Ghostgum\gsview\gsvw32ct.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32de.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32es.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32fr.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32gr.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32it.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32nl.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32ru.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32sk.dll
+d:\Program Files 2\Ghostgum\gsview\gsvw32se.dll
+d:\Program Files 2\Ghostgum\gsview\gvwgs32.exe
+d:\Program Files 2\Ghostgum\gsview\gsvwrg32.exe
+d:\Program Files 2\Ghostgum\gsview\uninstgs.exe
+d:\Program Files 2\Ghostgum\gsview\printer.ini
+d:\Program Files 2\Ghostgum\gsview\gsview32.ini
+d:\Program Files 2\Ghostgum\gsview\zlib32.dll
+d:\Program Files 2\Ghostgum\gsview\libbz2.dll
+d:\Program Files 2\Ghostgum\gsview\gsprint.exe
+d:\Program Files 2\Ghostgum\gsview\gsprint.htm
+d:\Program Files 2\Ghostgum\gsview\epstool.htm
+d:\Program Files 2\Ghostgum\gsview\Readme.htm
+d:\Program Files 2\Ghostgum\gsview\gsview.css
+d:\Program Files 2\Ghostgum\gsview\regorder.txt
+d:\Program Files 2\Ghostgum\gsview\LICENCE
+
+////////////////////////////////

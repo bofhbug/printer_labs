@@ -1,0 +1,36 @@
+0 842.4 translate 
+1 -1 scale
+
+/draw3 {/k exch def /y exch 
+def /x exch def
+/kx {k mul x add} def
+/ky {k mul y add} def
+/kxy {k mul} def
+newpath
+0 kx 19 ky moveto
+27.7 kx 19 ky lineto
+0 kx 57 ky moveto
+27.7 kx 57 ky lineto
+27.7 kx 0 ky moveto
+55. kx 0 ky lineto
+55.5 kx 76 ky lineto
+27.7 kx 76 ky lineto
+27.7 kx 0 ky lineto
+55.5 kx 38 ky moveto
+83.1 kx 38 ky lineto
+stroke
+1 setgray
+newpath
+55.5 kx 38 ky moveto
+55.5 kx 38 ky 3 kxy 0 360 arc
+fill
+0 setgray
+newpath
+55.5 kx 38 ky 3 kxy 0 360 arc
+stroke
+} def
+
+10 10 1 draw3
+10 100 1.7 draw3
+10 270 2.3 draw3
+showpage
