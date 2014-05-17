@@ -1,0 +1,5 @@
+newpath
+143 143 moveto
+2 143 mul 2 143 mul lineto
+stroke
+showpage
