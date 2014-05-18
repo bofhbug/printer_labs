@@ -144,7 +144,6 @@ namespace BarCodeReader2014
             string bin_code = "";
             for (int i = 1; i < 7; i++)
             {
-                var myValue = types.FirstOrDefault(x => x.Value == "one").Key;
                 bin_code += A_codes.key
 
             }
