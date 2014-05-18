@@ -124,12 +124,8 @@ namespace BarCodeReader2014
         private void DrawLine(int Pos, Bitmap b)
         {
             for (int y = 0; y < b.Height; y++)
-            {
                 for (int x = 5 * Pos; x < 5 * Pos + 5; x++)
-                {
                     b.SetPixel(x, y, Color.Black);
-                }
-            }
         }
 
         private void Encode(string ean)
@@ -138,14 +134,20 @@ namespace BarCodeReader2014
             using (Graphics g = Graphics.FromImage(Img2))
             {
                 g.Clear(Color.White);
-                Pen p = new Pen(Color.Black, 5);
-
-                g.DrawLine(p, new PointF(7.5F, 0), new PointF(7.5F, 200));
-                g.DrawLine(p, new PointF(17.5F, 0), new PointF(17.5F, 200));
             }
             DrawLine(1, Img2);
+            DrawLine(3, Img2);
+            DrawLine(46, Img2);
+            DrawLine(48, Img2);
+            DrawLine(95, Img2);
+            DrawLine(93, Img2);
+            string bin_code = "";
+            for (int i = 1; i < 7; i++)
+            {
+                bin_code += A_codes.key
 
-            PicBox.Image = Img2;
+            }
+                PicBox.Image = Img2;
         }
 
         private void DecodeBtn_Click(object sender, EventArgs e)
