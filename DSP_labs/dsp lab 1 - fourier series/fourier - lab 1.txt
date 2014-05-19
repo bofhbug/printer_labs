@@ -1,0 +1,9 @@
+скріпти для desmos.com/calculator
+
+$y\space =\space 0.37661\space -\space 0.2115\cos \left(2\pi x\right)+0.103\sin \left(2\pi x\right)+0.37215\cos \left(4\pi x\right)+0.1577\sin \left(4\pi x\right)+\sum _{n=3}^a\left(\left(\frac{\sin \left(1.6\pi \cdot n\right)}{2\pi n}+\frac{\sin \left(1.6\pi \left(n+2\right)\right)}{4\pi \left(n+2\right)}+\frac{\sin \left(1.6\pi \left(n-2\right)\right)}{4\pi \left(n-2\right)}\right)\cdot \cos \left(2\pi nx\right)+\left(\frac{\left(1-\cos \left(1.6\pi n\right)\right)}{2\pi n}+\frac{\left(1-\cos \left(1.6\pi \left(n-2\right)\right)\right)}{4\pi \left(n-2\right)}+\frac{\left(1-\cos \left(1.6\pi \left(n+2\right)\right)\right)}{4\pi \left(n+2\right)}\right)\sin \left(2\pi nx\right)\right)$
+
+$y=\space 0.37661+0.2352\sin \left(2\pi x-1.1176\right)+0.4042\sin \left(4\pi x+1.17\right)+0.1574\cdot \sin \left(6\pi x-0.2866\right)+0.1086\sin \left(8\pi x+0.0166\right)+0.0692\sin \left(10\pi x+0.129\right)$
+
+$\left(\cos \left(2\pi x\right)\right)^2\left\{x\ge 0\right\}\left\{x<0.8\right\}$
+
+$0\left\{x\ge 0.8\right\}\left\{x<1\right\}$
