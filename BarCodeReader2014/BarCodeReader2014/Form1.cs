@@ -23,30 +23,25 @@ namespace BarCodeReader2014
             InitializeComponent();
             for (int i = 0; i < 10; i++)
             {
-                encoding_table.Add(str_to_bool(A_codes[i], 'A'), new number_type(i, 'A'));
-                encoding_table.Add(str_to_bool(A_codes[i], 'B'), new number_type(i, 'B'));
-                encoding_table.Add(str_to_bool(A_codes[i], 'C'), new number_type(i, 'C'));
-            }
-        }
-
-        private void BrowseBtn_Click(object sender, EventArgs e)
-        {
-            DialogResult Res = OpenDlg.ShowDialog();
-            if (!Res.HasFlag(DialogResult.Cancel))
-            {
-                PathBox.Text = OpenDlg.FileName;
+                encoding_table.Add(str_mutate(A_codes[i], 'A'), new number_type(i, 'A'));
+                encoding_table.Add(str_mutate(A_codes[i], 'B'), new number_type(i, 'B'));
+                encoding_table.Add(str_mutate(A_codes[i], 'C'), new number_type(i, 'C'));
             }
         }
 
         private void OpenBtn_Click(object sender, EventArgs e)
         {
-            Img = new Bitmap(PathBox.Text);
-            PicBox.Image = Img;
+            DialogResult Res = OpenDlg.ShowDialog();
+            if (!Res.HasFlag(DialogResult.Cancel) && System.IO.File.Exists(OpenDlg.FileName))
+            {
+                Img = new Bitmap(OpenDlg.FileName);
+                PicBox.Image = Img;
+            }
         }
 
         private bool IsBlack(Color c)
         {
-            return (c.R < 100 && c.B < 100 && c.G < 100);
+            return (c.R * 0.3 < 120 && c.B * 0.11 < 120 && c.G * 0.59 < 120);
         }
 
         struct number_type
@@ -60,10 +55,12 @@ namespace BarCodeReader2014
             public char type;
         }
 
-        private bool TryDecode(string full_bin_list, number_type[] n_type_array)
+        private bool TryDecode(string full_bin_list)
         {
-            BinaryBox.Clear();
+            BinaryBox1.Clear();
+            BinaryBox2.Clear();
             PatterBox.Clear();
+            number_type[] n_type_array = new number_type[12];
             for (int i = 0; i < 12; i++)
             {
                 if (!encoding_table.TryGetValue(full_bin_list.Substring(i * 7, 7), out n_type_array[i]))
@@ -71,7 +68,10 @@ namespace BarCodeReader2014
                     label1.Text = "Error. There is no such bit patter in encoding table";
                     return false;
                 }
-                BinaryBox.Text += full_bin_list.Substring(i * 7, 7) + " ";
+                if (i < 6)
+                    BinaryBox1.Text += full_bin_list.Substring(i * 7, 7) + " ";
+                else
+                    BinaryBox2.Text += full_bin_list.Substring(i * 7, 7) + " ";
             }
 
             string encoded_type_str = "";
@@ -107,13 +107,7 @@ namespace BarCodeReader2014
 
             DigitBox.Text = fullEAN;
 
-            int[] fullIntEAN = new int[13];
-            fullIntEAN[0] = first_number;
-            for (int i = 0; i < 12; i++)
-            {
-                fullIntEAN[i + 1] = n_type_array[i].number;
-            }
-            if (!checkCode(fullIntEAN))
+            if (get_control_sum(fullEAN) != int.Parse(fullEAN[12].ToString()))
             {
                 label1.Text = "Error. Checksum is wrong";
                 return false;
@@ -121,34 +115,66 @@ namespace BarCodeReader2014
             return true;
         }
 
-        private void DrawLine(int Pos, Bitmap b)
+        private void DrawLine(int Pos, int barwidth, Bitmap b)
         {
             for (int y = 0; y < b.Height; y++)
-                for (int x = 5 * Pos; x < 5 * Pos + 5; x++)
+                for (int x = barwidth * Pos; x < barwidth * Pos + barwidth; x++)
                     b.SetPixel(x, y, Color.Black);
         }
 
         private void Encode(string ean)
         {
-            Bitmap Img2 = new Bitmap(485, 200);
+            Bitmap Img2 = new Bitmap(530, 200);
             using (Graphics g = Graphics.FromImage(Img2))
             {
+                int barwidth = 5;
+                int shift = 7;
                 g.Clear(Color.White);
-            }
-            DrawLine(1, Img2);
-            DrawLine(3, Img2);
-            DrawLine(46, Img2);
-            DrawLine(48, Img2);
-            DrawLine(95, Img2);
-            DrawLine(93, Img2);
-            string bin_code = "";
-            for (int i = 1; i < 7; i++)
-            {
-                var myValue = types.FirstOrDefault(x => x.Value == "one").Key;
-                bin_code += A_codes.key
+                DrawLine(1 + shift, barwidth, Img2);
+                DrawLine(3 + shift, barwidth, Img2);
+                DrawLine(47 + shift, barwidth, Img2);
+                DrawLine(49 + shift, barwidth, Img2);
+                DrawLine(95 + shift, barwidth, Img2);
+                DrawLine(93 + shift, barwidth, Img2);
+                PatterBox.Text = first_number_code[int.Parse(ean[0].ToString())] + "CCCCCC";
+                ean += get_control_sum(ean).ToString();
+                DigitBox.Text = ean;
+                string bin_code = "";
+                for (int i = 1; i < 7; i++)
+                {
+                    bin_code += str_mutate(A_codes[int.Parse(ean[i].ToString())], first_number_code[int.Parse(ean[0].ToString())][i - 1]);
+                }
+                for (int i = 7; i < 13; i++)
+                {
+                    bin_code += str_mutate(A_codes[int.Parse(ean[i].ToString())], 'C');
+                }
+                BinaryBox1.Clear();
+                BinaryBox2.Clear();
+                for (int i = 0; i < 6; i++)
+                {
+                    BinaryBox1.Text += bin_code.Substring(i * 7, 7) + " ";
+                }
+                for (int i = 6; i < 12; i++)
+                {
+                    BinaryBox2.Text += bin_code.Substring(i * 7, 7) + " ";
+                }
+                for (int i = 0; i < 42; i++)
+                {
+                    if (bin_code[i] == '1') DrawLine(4 + i + shift, barwidth, Img2);
+                }
+                for (int i = 42; i < 84; i++)
+                {
+                    if (bin_code[i] == '1') DrawLine(9 + i + shift, barwidth, Img2);
+                }
 
+                g.FillRectangle(Brushes.White, (4 + shift) * barwidth, Img2.Height - 40, 42 * barwidth, 40);
+                g.FillRectangle(Brushes.White, (51 + shift) * barwidth, Img2.Height - 40, 42 * barwidth, 40);
+                g.DrawString(ean.Substring(1, 6), new Font("Courier New", 38, FontStyle.Bold), Brushes.Black, (5 + shift) * barwidth, Img2.Height - 47);
+                g.DrawString(ean.Substring(7, 6), new Font("Courier New", 38, FontStyle.Bold), Brushes.Black, (52 + shift) * barwidth, Img2.Height - 47);
+                g.DrawString(ean[0].ToString(), new Font("Courier New", 38, FontStyle.Bold), Brushes.Black, (-7 + shift) * barwidth, Img2.Height - 47);
             }
-                PicBox.Image = Img2;
+            Img = Img2;
+            PicBox.Image = Img2;
         }
 
         private void DecodeBtn_Click(object sender, EventArgs e)
@@ -171,36 +197,21 @@ namespace BarCodeReader2014
                     bc = bc2;
                     b++;
                 }
+                if (a.Count == 60)
                 bb.Add(a);
             }
-
-            int[] cc = new int[255];
-            for (int i = 0; i < bb.Count; i++)
+            if (bb.Count == 0 )
             {
-                if (bb[i].Count < 255)
-                    cc[bb[i].Count]++;
-            }
-            int b_num = 0;
-            for (int i = 5; i < 255; i++)
-            {
-                if (cc[i] > b_num) b_num = i;
-            }
-            for (int i = 0; i < bb.Count; i++)
-            {
-                if (bb[i].Count != b_num)
-                {
-                    bb.RemoveAt(i);
-                    i--;
-                }
+                label1.Text = "Не удалось разпознать!";
+                label1.ForeColor = Color.Red;
+                return;
             }
             double b_len = 0;
             foreach (List<int> a in bb)
             {
-                b_len += a[1] + a[3] + a[a.Count - 2] + a[a.Count - 4];
+                b_len += a[1] + a[3] + a[a.Count - 1] + a[a.Count - 3];
             }
             b_len /= 4 * bb.Count;
-            b_len *= 0.88;     // це або баг або фіча,     
-            //довжина перших і останніх базових довжин стрічок трохи більша ніж треба
 
             double w_len = 0;
             foreach (List<int> a in bb)
@@ -223,7 +234,7 @@ namespace BarCodeReader2014
                 double average_length = (double)cur_sum / bb.Count;
                 if (i % 2 == 0)
                 {
-                    double bit_amount = average_length / w_len;
+                    double bit_amount = (double)average_length / w_len;
                     int_bits_amount = (int)Math.Round(bit_amount);
                     for (int j = 0; j < int_bits_amount; j++)
                     {
@@ -232,7 +243,7 @@ namespace BarCodeReader2014
                 }
                 else
                 {
-                    double bit_amount = average_length / b_len;
+                    double bit_amount = (double)average_length / b_len;
                     int_bits_amount = (int)Math.Round(bit_amount);
                     for (int j = 0; j < int_bits_amount; j++)
                     {
@@ -240,21 +251,23 @@ namespace BarCodeReader2014
                     }
                 }
             }
+            if (full_bin_list.Length < 89)
+            {
+                label1.Text = "Не удалось разпознать!";
+                label1.ForeColor = Color.Red;
+                return;
+            }
             full_bin_list = full_bin_list.Substring(0, 42) + full_bin_list.Substring(47, 42); //     Видалємо середні допоміжні біти
 
-
-            number_type[] n_type_array = new number_type[12];
             label1.Text = "Успешно декодирован";
             label1.ForeColor = Color.Green;
-            if (!TryDecode(full_bin_list, n_type_array))
+            if (!TryDecode(full_bin_list))
             {
-                number_type[] n_type_array2 = new number_type[12];
-                for (int i = 0; i < 12; i++)
-                {
-                    n_type_array2[11 - i] = n_type_array[i];
-                }
-                n_type_array = n_type_array2;
-                if (!TryDecode(full_bin_list, n_type_array))
+                string s = "";
+                foreach (char c in full_bin_list) s = c.ToString() + s;
+                full_bin_list = s;
+                label1.Text = "Успешно декодирован";
+                if (!TryDecode(full_bin_list))
                 {
                     label1.ForeColor = Color.Red;
                 }
@@ -264,7 +277,7 @@ namespace BarCodeReader2014
         }
 
 
-        private bool checkCode(int[] source_digits)
+        private int get_control_sum(string source_digits)
         {
             int sum_evens = 0;
             int sum_odds = 0;
@@ -272,27 +285,17 @@ namespace BarCodeReader2014
             {
                 if ((i % 2) == 1)
                 {
-                    sum_evens += source_digits[i];
+                    sum_evens += int.Parse(source_digits[i].ToString());
                 }
                 else
                 {
-                    sum_odds += source_digits[i];
-                }                
+                    sum_odds += int.Parse(source_digits[i].ToString());
+                }
             }
-            int control_sum = (10 - ((sum_odds + 3 * sum_evens) % 10 )) % 10;
-            if (control_sum == source_digits[12])
-            {
-  //              MessageBox.Show("Control sum equals to " + control_sum.ToString() + "\nEAN code is confirmed.");
-                return true;
-            }
-            else
-            {
-  //              MessageBox.Show("Error. Control sum equals to " + control_sum.ToString() + "\nEAN code is wrong.");
-                return false;
-            }
+            return (10 - ((sum_odds + 3 * sum_evens) % 10)) % 10;
         }
 
-        private string str_to_bool(string source, char param)
+        private string str_mutate(string source, char param)
         {
             if (param == 'A')
                 return source;
@@ -316,14 +319,25 @@ namespace BarCodeReader2014
             return res;
         }
 
-        private void PathBox_TextChanged(object sender, EventArgs e)
-        {
-            OpenBtn.Enabled = System.IO.File.Exists(PathBox.Text);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Encode("");
+            if (DigitBox.Text.Length > 11)
+            {
+                Encode(DigitBox.Text.Substring(0, 12));
+                label1.ForeColor = Color.Green;
+                label1.Text = "Успешно закодирован";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Random r = new Random();
+                DigitBox.Clear();
+            for (int i = 0; i < 12; i++)
+                DigitBox.Text += r.Next(9).ToString();
+            DigitBox.Text += get_control_sum(DigitBox.Text).ToString();
+            button1_Click(sender, e);
         }
 
     }
